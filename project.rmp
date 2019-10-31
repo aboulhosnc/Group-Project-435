@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.4.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.4.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="logfile" value="/Users/harrisoncook/School/CMSC435/Project/out.log"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_excel" compatibility="9.4.001" expanded="true" height="68" name="Read Excel" width="90" x="45" y="34">
+        <parameter key="excel_file" value="/Users/harrisoncook/School/CMSC435/Project/sequences_training.xlsx"/>
+        <parameter key="sheet_selection" value="sheet number"/>
+        <parameter key="sheet_number" value="1"/>
+        <parameter key="imported_cell_range" value="A1"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations"/>
+        <parameter key="date_format" value=""/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="A.true.polynominal.attribute"/>
+          <parameter key="1" value="B.true.polynominal.attribute"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="false"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="python_scripting:execute_python" compatibility="9.3.001" expanded="true" height="103" name="Execute Python" width="90" x="179" y="289">
+        <parameter key="script" value="import pandas&#10;import collections&#10;def rm_main(data):&#10;    listOfMostCommonLetter = []&#10;    pandaData = pandas.DataFrame(data);&#10;    for sequenceAmino in pandaData['A']:&#10;    &#9;&#9;mostCommon = collections.Counter(sequenceAmino).most_common(1)[0]&#10;    &#9;&#9;listOfMostCommonLetter.append(mostCommon[0])&#10;    pandaData['Most Common Letter'] = listOfMostCommonLetter&#10;    return pandaData"/>
+        <parameter key="notebook_cell_tag_filter" value=""/>
+        <parameter key="use_default_python" value="true"/>
+        <parameter key="package_manager" value="conda (anaconda)"/>
+      </operator>
+      <operator activated="true" class="python_scripting:execute_python" compatibility="9.3.001" expanded="true" height="103" name="Execute Python (2)" width="90" x="179" y="136">
+        <parameter key="script" value="import pandas&#10;import collections&#10;def rm_main(data):&#10;    listOfPolarOrNonPolar = []&#10;    pandaData = pandas.DataFrame(data);&#10;    for sequenceAmino in pandaData['A']:&#10;    &#9;&#9;letterCount = collections.Counter(sequenceAmino)&#10;    &#9;&#9;polarCount = 0&#10;    &#9;&#9;for key, value in letterCount.items():&#10;    &#9;&#9;&#9;if(key=='A' or key=='G' or key=='I' or key=='L' or key=='M' or key=='F' or key=='P' or key=='W' or key=='V'):&#10;    &#9;&#9;&#9;&#9;polarCount=polarCount-value&#10;    &#9;&#9;&#9;else:&#10;    &#9;&#9;&#9;&#9;polarCount=polarCount+value&#10;    &#9;&#9;if(polarCount&gt;0):&#10;    &#9;&#9;&#9;listOfPolarOrNonPolar.append(True)&#10;    &#9;&#9;else:&#10;    &#9;&#9;&#9;listOfPolarOrNonPolar.append(False)&#10;    &#10;    pandaData['Is Polar'] = listOfPolarOrNonPolar&#10;    return pandaData"/>
+        <parameter key="notebook_cell_tag_filter" value=""/>
+        <parameter key="use_default_python" value="true"/>
+        <parameter key="package_manager" value="conda (anaconda)"/>
+      </operator>
+      <operator activated="true" class="python_scripting:execute_python" compatibility="9.3.001" expanded="true" height="103" name="Execute Python (3)" width="90" x="313" y="34">
+        <parameter key="script" value="import pandas&#10;def rm_main(data):&#10;    chargeList = []&#10;    pandaData = pandas.DataFrame(data);&#10;    for sequenceAmino in pandaData['A']:&#10;    &#9;&#9;charge = 0&#10;    &#9;&#9;for letter in list(sequenceAmino.strip()):&#10;    &#9;&#9;&#9;if(letter=='R' or letter=='H' or letter=='K'):&#10;    &#9;&#9;&#9;&#9;charge=charge+1&#10;    &#9;&#9;&#9;elif(letter=='D' or letter=='E'):&#10;    &#9;&#9;&#9;&#9;charge=charge-1&#10;    &#9;&#9;if(charge&gt;0):&#10;    &#9;&#9;&#9;chargeList.append(1)&#10;    &#9;&#9;elif(charge&lt;0):&#10;    &#9;&#9;&#9;chargeList.append(-1)&#10;    &#9;&#9;else:&#10;    &#9;&#9;&#9;chargeList.append(0)&#10;    &#10;    pandaData['Charge'] = chargeList&#10;    return pandaData"/>
+        <parameter key="notebook_cell_tag_filter" value=""/>
+        <parameter key="use_default_python" value="true"/>
+        <parameter key="package_manager" value="conda (anaconda)"/>
+      </operator>
+      <operator activated="true" class="generate_attributes" compatibility="9.4.001" expanded="true" height="82" name="Generate Attributes" width="90" x="447" y="34">
+        <list key="function_descriptions">
+          <parameter key="lengthOfSequence" value="length(A)"/>
+        </list>
+        <parameter key="keep_all" value="true"/>
+      </operator>
+      <connect from_port="input 1" to_op="Read Excel" to_port="file"/>
+      <connect from_op="Read Excel" from_port="output" to_op="Execute Python" to_port="input 1"/>
+      <connect from_op="Execute Python" from_port="output 1" to_op="Execute Python (2)" to_port="input 1"/>
+      <connect from_op="Execute Python (2)" from_port="output 1" to_op="Execute Python (3)" to_port="input 1"/>
+      <connect from_op="Execute Python (3)" from_port="output 1" to_op="Generate Attributes" to_port="example set input"/>
+      <connect from_op="Generate Attributes" from_port="example set output" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="source_input 2" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>
