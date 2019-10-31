@@ -62,8 +62,8 @@ least_letter_list = list() # least letter description
 no_letter_list = list() # list for all
 
 
-alanine_count = list() # count number of alanine in a list (A)
-arginine_count = list() # count number of arginine (R)
+# alanine_count = list() # count number of alanine in a list (A)
+# arginine_count = list() # count number of arginine (R)
 asparagine_count = list() #count number of asparagine  (N)
 aspartic_acid_count = list() # count of asp acid (D)
 cysteine_count =list() # count number of cysteine in a list (C)
@@ -89,7 +89,7 @@ valine_count = list() # (V)
 feature_list = [alanine_count,arginine_count,asparagine_count,aspartic_acid_count,cysteine_count,glutamine_count,glutamic_count,\
                 glycine_count,histidine_count,isoleucine_count,leucine_count,lysine_count,methionine_count,phenylalanine_count,\
                 proline_count,serine_count,threonine_count,tryptophan_count,tyrosine_count,valine_count]
-                
+
 
 sequence_letter_list = ['A','R','N','D','C','Q','E','G','H','I','L','K','M','F','P','S','T','W','Y','V']
 seq_name_list = ['ala','arg','asn','asp','cys','gln','glu','gly','his','ile','leu','lys','met','phe',\
@@ -128,6 +128,7 @@ for  seq_str in (sequenceLabel):
     least_num = 1300
     temp_str = ''
     temp_tot_str = ''
+    max_num_temp
 
 
     #loop to go through each character in string
@@ -137,13 +138,15 @@ for  seq_str in (sequenceLabel):
         temp_str = sequence_letter_list[num]
 
 
-
         #checks highest count for max number and index
         if(temp_num > max_num):
             max_num = temp_num
             index = num
 
-        elif(temp_num < least_num and (temp_num != 0)):
+        # elif(temp_num = max_num):
+        #
+
+        elif(temp_num <= least_num and (temp_num != 0)):
             least_num = temp_num
             least_index = num
 
