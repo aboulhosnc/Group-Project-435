@@ -53,6 +53,7 @@ dnaLabel = data['label'].tolist()
 sequenceLabel = list()
 sequenceLabel = data['sequence'].tolist()
 
+#features added
 feature_length = list() # count number of characters in a list
 max_letter_list = list() # list of the max letter in the list
 max_letter_count = list() # list of max num for each row
@@ -60,10 +61,14 @@ max_count_ratio = list() # ratio of max number of total number
 least_letter_count = list() # least letter number
 least_letter_list = list() # least letter description
 no_letter_list = list() # list for all
+list
+
+#lists of counts of amino acids
 
 
-# alanine_count = list() # count number of alanine in a list (A)
-# arginine_count = list() # count number of arginine (R)
+
+alanine_count = list() # count number of alanine in a list (A)
+arginine_count = list() # count number of arginine (R)
 asparagine_count = list() #count number of asparagine  (N)
 aspartic_acid_count = list() # count of asp acid (D)
 cysteine_count =list() # count number of cysteine in a list (C)
@@ -94,29 +99,31 @@ feature_list = [alanine_count,arginine_count,asparagine_count,aspartic_acid_coun
 sequence_letter_list = ['A','R','N','D','C','Q','E','G','H','I','L','K','M','F','P','S','T','W','Y','V']
 seq_name_list = ['ala','arg','asn','asp','cys','gln','glu','gly','his','ile','leu','lys','met','phe',\
                 'pro','ser','thr','trp','tyr','val']
-# alanine - ala - A (gif, interactive)
-# arginine - arg - R (gif, interactive)
-# asparagine - asn - N (gif, interactive)
-# aspartic acid - asp - D (gif, interactive)
-# cysteine - cys - C (gif, interactive)
-# glutamine - gln - Q (gif, interactive)
-# glutamic acid - glu - E (gif, interactive)
-# glycine - gly - G (gif, interactive)
-# histidine - his - H (gif, interactive)
-# isoleucine - ile - I (gif, interactive)
-# leucine - leu - L (gif, interactive)
-# lysine - lys - K (gif, interactive)
-# methionine - met - M (gif, interactive)
-# phenylalanine - phe - F (gif, interactive)
-# proline - pro - P (gif, interactive)
-# serine - ser - S (gif, interactive)
-# threonine - thr - T (gif, interactive)
-# tryptophan - trp - W (gif, interactive)
-# tyrosine - tyr - Y (gif, interactive)
-# valine - val - V (gif, interactive)
-# Sometimes it is not possible two differentiate two closely related amino acids, therefore we have the special cases:
-# asparagine/aspartic acid - asx - B
-# glutamine/glutamic acid - glx - Z
+
+# lists for features from the site
+
+#Hydrophobicity
+hydro_1 = ['R','K','E','D','Q','N']
+hydro_2 = ['G','A','S','T','P','H','Y']
+hydro_3 = ['C','L','V','I','M','F','W']
+
+hydro_1r, hydro_2r, hydro_3r = list(), list(), list()
+
+g4_series_ratios = [hydro_1r, hydro_2r, hydro_3r]
+
+
+def g_series_count (val,seq_len,  list_all, list_ratio_all):
+    for inner_list in list_all:
+        for value in inner_list:
+            if (val = value):
+                list_ratio_all.append
+
+
+
+
+#Normalized
+
+g_series_list = [hydro_1, hydro_2, hydro_3]
 
 # feature_tuple = merge(feature_list, sequence_letter_list)
 
@@ -127,90 +134,68 @@ for  seq_str in (sequenceLabel):
     temp_num = 0
     least_num = 1300
     temp_str = ''
-    temp_tot_str = ''
-    max_num_temp
+    temp_tot_none = ''
+    max_num_str_temp = ''
+    max_num_str_tot = ''
+    least_num_str_tot = ''
+
+    g_series_count(seq_str, str_len, g_series_list, g4_series_ratios)
 
 
     #loop to go through each character in string
     for num, value in  enumerate(feature_list):
         temp_num = seq_str.count(sequence_letter_list[num])
         feature_list[num].append(temp_num)
-        temp_str = sequence_letter_list[num]
-
+        temp_str = sequence_letter_list[num] #individual character
+        
+        
+        
 
         #checks highest count for max number and index
         if(temp_num > max_num):
             max_num = temp_num
-            index = num
+            max_num_str_tot = temp_str
+            
 
-        # elif(temp_num = max_num):
-        #
+        elif(temp_num == max_num):
+            max_num_str_tot = max_num_str_tot + temp_str
 
-        elif(temp_num <= least_num and (temp_num != 0)):
+        elif(temp_num < least_num and (temp_num != 0)):
+            least_num_str_tot = temp_str
             least_num = temp_num
-            least_index = num
+            
+        
+        elif(temp_num == least_num and (temp_num != 0)):
+            lest_num_str_tot = least_num_str_tot + temp_str
+
 
         elif(temp_num == 0):
-            temp_tot_str = temp_str + temp_tot_str
+            temp_tot_none = temp_str + temp_tot_none
 
 
     feature_length.append(str_len)
-    max_letter_list.append(sequence_letter_list[index])
-    max_letter_count.append(max_num)
-    max_count_ratio.append(max_num/str_len)
-    least_letter_list.append(sequence_letter_list[least_index])
+    max_letter_list.append(max_num_str_tot) # all letters that are max
+    max_letter_count.append(max_num) #highest count
+    max_count_ratio.append(max_num/str_len) #ratio of highest over total
+    least_letter_list.append(least_num_str_tot) # amount
     least_letter_count.append(least_num)
-    no_letter_list.append(temp_tot_str)
+    no_letter_list.append(temp_tot_none)
 
 
 
     # print (count)
 
 
-
-
-# position = list.index(i)
-# print ('element {} has {} letters '.format(sequenceLabel.index(i),len(i)))
-# feature_length.append(len(i))
-# #ARNDCQEGHILKMFPSTWYV
-# alanine_count.append(count_character(i,'A'))
-# arginine_count.append(i.count('R'))
-# asparagine_count.append(i.count('N'))
-# aspartic_acid_count.append(i.count('D'))
-# cysteine_count.append(count_character(i,'C'))
-# glutamine_count.append(i.count('Q'))
-# glutamic_count.append(i.count('E'))
-# glycine_count.append(i.count('G'))
-# histidine_count.append(i.count('H'))
-# isoleucine_count.append(i.count('I'))
-# leucine_count.append(i.count('L'))
-# lysine_count.append(i.count('K'))
-# methionine_count.append(i.count('M'))
-# phenylalanine_count.append(i.count('F'))
-# proline_count.append(i.count('P'))
-# serine_count.append(i.count('S'))
-# threonine_count.append(i.count('T'))
-# tryptophan_count.append(i.count('W'))
-# tyrosine_count.append(i.count('Y'))
-# valine_count.append(i.count('V'))
-# asp_or_asp_acid_count.append(i.count('B'))
-# glutamine_or_glutamic_acid_count.append(i.count('Z'))
-
 #feature for number of a in each drawLine
 
 
-# # insert columns into character
-# insert_column(data,'seq_len', feature_length, 1)
-# insert_column(data,'ala_count', alanine_count, 2)
-# insert_column(data,'arg_count', arginine_count, 3)
-# insert_column(data,'asp_count', asparagine_count, 4)
-# insert_column(data,'cys_count', cysteine_count, 5)
 
+# for loop to insert column count into csv
 for i in range(20):
     insert_column(data,seq_name_list[i] + '_count',feature_list[i],(i +1))
     # print (i)
 
-#column to insert seq length
+# insert columns to df here
 insert_column(data,'seq_len', feature_length, 21)
 insert_column(data,'most freq amino',max_letter_list,22)
 insert_column(data,'max_num',max_letter_count,23)
@@ -219,10 +204,11 @@ insert_column(data,'least freq amino',least_letter_list,25)
 insert_column(data,'least_num',least_letter_count,26)
 insert_column(data,'not in seq',no_letter_list,27)
 
+
 #Export data frame to csv
 data.to_csv("output.csv", index=False, header = True)
 
-print (data)
+# print (data)
 #
 
 
