@@ -12,14 +12,18 @@ data = pd.read_csv('sequences_training(1).csv', header = None)
 data.columns = ['sequence', 'label']
 
 
+# variables
+col_pos = 1
+test_string = 'CGQGFSVKSDVITHQRTHTGEKLYVCRECGRGFSWKSHLLIHQRIHTGEKPYVCRECGRGFSWQSVLLTHQRTHTG'\
+                + 'EKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSWQSVLL'\
+                + 'THQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSRQ'\
+                + 'SVLLTHQRRHTGEKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRG'\
+                + 'FSNKSHLLRHQRTHTGEKPYVCRECGRGFRDKSHLLSHQRTHTGEKPYVCRECGRGFRDKSNLLSHQRTHTGEKPYVCREC'\
+                + 'GRGFSWQSVLLRHQRTHTGEKPYVCRECGRGFRDKSNLLSHQRTHTGEKPYVCRECGRGFRNKSHLLRHQRTHTGEKPYVCR'\
+                + 'ECGRGFSDRSSLCYHQRTHTGEKPYVCREDE'
 
-# test_string = 'CGQGFSVKSDVITHQRTHTGEKLYVCRECGRGFSWKSHLLIHQRIHTGEKPYVCRECGRGFSWQSVLLTHQRTHTG'\
-#                 + 'EKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSWQSVLL'\
-#                 + 'THQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSRQ'\
-#                 + 'SVLLTHQRRHTGEKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRG'\
-#                 + 'FSNKSHLLRHQRTHTGEKPYVCRECGRGFRDKSHLLSHQRTHTGEKPYVCRECGRGFRDKSNLLSHQRTHTGEKPYVCREC'\
-#                 + 'GRGFSWQSVLLRHQRTHTGEKPYVCRECGRGFRDKSNLLSHQRTHTGEKPYVCRECGRGFRNKSHLLRHQRTHTGEKPYVCR'\
-#                 + 'ECGRGFSDRSSLCYHQRTHTGEKPYVCREDE'
+
+
 
 # shuffle
 # data = data.sample(frac=1).reset_index(drop=True)
@@ -27,13 +31,19 @@ data.columns = ['sequence', 'label']
 
 
 # function to add columns to it
-def insert_column (df, name, feature, col_position = 1):
+def insert_column (df, name, feature, col_position):
     df.insert (col_position, name, feature)
+    global col_pos
+    col_pos = ( col_pos + 1)
+
 
 #function to count specific character count in a string
 def count_character(string,character):
     string.count(character)
     # return c_count
+
+# def inc_count(num):
+
 
 # def getMaxOccuringChar(str):
 #     # Create array to keep the count of individual characters
@@ -102,28 +112,40 @@ seq_name_list = ['ala','arg','asn','asp','cys','gln','glu','gly','his','ile','le
 
 # lists for features from the site
 
+def g_series_count (seq,seq_len,  list_all, list_ratio_all):
+    for list_count , inner_list in enumerate(list_all):
+        tem_num = 0
+        for num, value in enumerate(inner_list):
+            tem_num = seq.count(value) + tem_num
+
+        tem_num = (tem_num / seq_len)
+        list_ratio_all[list_count].append(tem_num)
+
+
 #Hydrophobicity
-hydro_1 = ['R','K','E','D','Q','N']
+hydro_1 = ['R','K','E','D','Q','N'] # arg, lysine, glutamic_count, asp acid, glutamine, asparagine
 hydro_2 = ['G','A','S','T','P','H','Y']
 hydro_3 = ['C','L','V','I','M','F','W']
 
 hydro_1r, hydro_2r, hydro_3r = list(), list(), list()
 
+g_series_name_list = ['hydro_1','hydro_2','hydro_3']
+
+g_series_list = [hydro_1, hydro_2, hydro_3]
 g4_series_ratios = [hydro_1r, hydro_2r, hydro_3r]
 
+# g_series_count(test_string, len(test_string), g_series_list, g4_series_ratios)
+# print(g4_series_ratios[0])
 
-def g_series_count (val,seq_len,  list_all, list_ratio_all):
-    for inner_list in list_all:
-        for value in inner_list:
-            if (val = value):
-                list_ratio_all.append
+# print(g4_series_ratios)
+
 
 
 
 
 #Normalized
 
-g_series_list = [hydro_1, hydro_2, hydro_3]
+
 
 # feature_tuple = merge(feature_list, sequence_letter_list)
 
@@ -139,6 +161,7 @@ for  seq_str in (sequenceLabel):
     max_num_str_tot = ''
     least_num_str_tot = ''
 
+    # g_series_count(seq_str, str_len, g_series_list, g4_series_ratios)
     g_series_count(seq_str, str_len, g_series_list, g4_series_ratios)
 
 
@@ -147,15 +170,15 @@ for  seq_str in (sequenceLabel):
         temp_num = seq_str.count(sequence_letter_list[num])
         feature_list[num].append(temp_num)
         temp_str = sequence_letter_list[num] #individual character
-        
-        
-        
+
+
+
 
         #checks highest count for max number and index
         if(temp_num > max_num):
             max_num = temp_num
             max_num_str_tot = temp_str
-            
+
 
         elif(temp_num == max_num):
             max_num_str_tot = max_num_str_tot + temp_str
@@ -163,8 +186,8 @@ for  seq_str in (sequenceLabel):
         elif(temp_num < least_num and (temp_num != 0)):
             least_num_str_tot = temp_str
             least_num = temp_num
-            
-        
+
+
         elif(temp_num == least_num and (temp_num != 0)):
             lest_num_str_tot = least_num_str_tot + temp_str
 
@@ -191,18 +214,35 @@ for  seq_str in (sequenceLabel):
 
 
 # for loop to insert column count into csv
-for i in range(20):
-    insert_column(data,seq_name_list[i] + '_count',feature_list[i],(i +1))
-    # print (i)
+# for i in range(20):
+#     insert_column(data,sequence_letter_list[i] + '_count',feature_list[i],(col_pos))
+#     # print (i)
+
+whole_id = 1
+for i in range(len(g4_series_ratios)):
+    increment = ((i %3) + 1)
+    insert_column(data,'G4.C.'+ str(whole_id) + '.' + str(increment) +'.' + g_series_name_list[i] , g4_series_ratios[i],(col_pos))
+    whole_id = ((whole_id + 1) if increment == 3 else (whole_id))
+# print(g4_series_ratios[0])
+# print(len(g4_series_ratios[0]))
+# print(len(g_series_name_list[0]))
+# print(len(feature_list[0]))
+# print(feature_list[0])
+
+# insert_column(data,'G4.C.1' + g_series_name_list[i],g_series_list[i],(col_pos))
+# insert_column(data,'G4.C.1' + g_series_name_list[i],g_series_list[i],(col_pos))
+
+# print (col_pos)
+# print (len(g_series_list))
 
 # insert columns to df here
-insert_column(data,'seq_len', feature_length, 21)
-insert_column(data,'most freq amino',max_letter_list,22)
-insert_column(data,'max_num',max_letter_count,23)
-insert_column(data,'max ratio',max_count_ratio,24)
-insert_column(data,'least freq amino',least_letter_list,25)
-insert_column(data,'least_num',least_letter_count,26)
-insert_column(data,'not in seq',no_letter_list,27)
+# insert_column(data,'seq_len', feature_length, col_pos)
+# insert_column(data,'most freq amino',max_letter_list,col_pos)
+# insert_column(data,'max_num',max_letter_count,col_pos)
+# insert_column(data,'max ratio',max_count_ratio,col_pos)
+# insert_column(data,'least freq amino',least_letter_list,col_pos)
+# insert_column(data,'least_num',least_letter_count,col_pos)
+# insert_column(data,'not in seq',no_letter_list,col_pos)
 
 
 #Export data frame to csv
