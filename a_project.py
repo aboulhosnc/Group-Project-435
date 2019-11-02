@@ -27,7 +27,7 @@ col_pos = 1 # for adding number
 
 # shuffle's the columns before performing all the functions
 # depends on if we are doing it in rapid miner or not
-# data = data.sample(frac=1).reset_index(drop=True)
+data = data.sample(frac=1).reset_index(drop=True)
 # data = data.sample(frac=1).reset_index(drop=False)  # Does not drop index
 
 
@@ -48,6 +48,12 @@ def g_series_count (seq,seq_len,  list_all, list_ratio_all):
         list_ratio_all[list_count].append(tem_num)
 
 
+#fill in missing data with vales
+def fill_in(list):
+    for n,  i in enumerate(list):
+        if(i == ''):
+            list[n] = 'None'
+
 # add dna label to list
 dnaLabel = list()
 dnaLabel = data['label'].tolist()
@@ -65,29 +71,34 @@ max_count_ratio = list() # ratio of max number of total number
 least_letter_count = list() # least letter number
 least_letter_list = list() # least letter description
 no_letter_list = list() # list for all
-list
+seq_start_list = list() # list for if it starts with m or not
+
 
 #lists of counts of amino acids
-alanine_count = list() # count number of alanine in a list (A)
-arginine_count = list() # count number of arginine (R)
-asparagine_count = list() #count number of asparagine  (N)
-aspartic_acid_count = list() # count of asp acid (D)
-cysteine_count =list() # count number of cysteine in a list (C)
-glutamine_count = list() # count number of glutamine (Q)
-glutamic_count = list() # count of glutaimic (E)
-glycine_count = list() # count of glycine (G)
-histidine_count = list() # (H)
-isoleucine_count = list() #(I)
-leucine_count = list() # (L)
-lysine_count = list() # (K)
-methionine_count = list() # (M)
-phenylalanine_count = list() # (F)
-proline_count = list() # (P)
-serine_count = list() # (S)
-threonine_count = list() # (T)
-tryptophan_count = list() # (W)
-tyrosine_count = list() # (Y)
-valine_count = list() # (V)
+# alanine_count = list() # count number of alanine in a list (A)
+# arginine_count = list() # count number of arginine (R)
+# asparagine_count = list() #count number of asparagine  (N)
+# aspartic_acid_count = list() # count of asp acid (D)
+# cysteine_count =list() # count number of cysteine in a list (C)
+# glutamine_count = list() # count number of glutamine (Q)
+# glutamic_count = list() # count of glutaimic (E)
+# glycine_count = list() # count of glycine (G)
+# histidine_count = list() # (H)
+# isoleucine_count = list() #(I)
+# leucine_count = list() # (L)
+# lysine_count = list() # (K)
+# methionine_count = list() # (M)
+# phenylalanine_count = list() # (F)
+# proline_count = list() # (P)
+# serine_count = list() # (S)
+# threonine_count = list() # (T)
+# tryptophan_count = list() # (W)
+# tyrosine_count = list() # (Y)
+# valine_count = list() # (V)
+
+alanine_count,arginine_count,asparagine_count,aspartic_acid_count,cysteine_count,glutamine_count,glutamic_count,\
+glycine_count,histidine_count,isoleucine_count,leucine_count,lysine_count,methionine_count,phenylalanine_count,\
+proline_count,serine_count,threonine_count,tryptophan_count,tyrosine_count,valine_count = ([] for i in range(20))
 #optional counts
 # asp_or_asp_acid_count = list() # (B)
 # glutamine_or_glutamic_acid_count = list() # (Z)
@@ -244,6 +255,10 @@ for  seq_str in (sequenceLabel):
     # g_series_count(seq_str, str_len, g_series_list, g4_series_ratios)
     g_series_count(seq_str, str_len, g_series_list, g4_series_ratios)
 
+    # can be eith Yes No or 1 0
+    # (seq_start_list.append(1)if seq_str.startswith('M')else seq_start_list.append(0))
+    (seq_start_list.append('Yes')if seq_str.startswith('M')else seq_start_list.append('No'))
+
 
     #loop to go through each character in string
     for num, value in  enumerate(feature_list):
@@ -252,7 +267,7 @@ for  seq_str in (sequenceLabel):
         temp_str = sequence_letter_list[num] #individual character
 
 
-
+        
 
         #checks highest count for max number and index
         if(temp_num > max_num):
@@ -287,6 +302,9 @@ for  seq_str in (sequenceLabel):
 #feature for number of a in each drawLine
 
 
+#fill in missing data with none
+fill_in(no_letter_list)
+
 
 # for loop to insert column count into csv
 # count of each letter in the sequence
@@ -313,6 +331,7 @@ insert_column(data,'max ratio',max_count_ratio,col_pos)
 insert_column(data,'least freq amino',least_letter_list,col_pos)
 insert_column(data,'least_num',least_letter_count,col_pos)
 insert_column(data,'not in seq',no_letter_list,col_pos)
+insert_column(data,'start with M',seq_start_list,col_pos)
 
 
 #Export data frame to csv
