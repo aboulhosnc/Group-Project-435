@@ -75,27 +75,6 @@ seq_start_list = list() # list for if it starts with m or not
 
 
 #lists of counts of amino acids
-# alanine_count = list() # count number of alanine in a list (A)
-# arginine_count = list() # count number of arginine (R)
-# asparagine_count = list() #count number of asparagine  (N)
-# aspartic_acid_count = list() # count of asp acid (D)
-# cysteine_count =list() # count number of cysteine in a list (C)
-# glutamine_count = list() # count number of glutamine (Q)
-# glutamic_count = list() # count of glutaimic (E)
-# glycine_count = list() # count of glycine (G)
-# histidine_count = list() # (H)
-# isoleucine_count = list() #(I)
-# leucine_count = list() # (L)
-# lysine_count = list() # (K)
-# methionine_count = list() # (M)
-# phenylalanine_count = list() # (F)
-# proline_count = list() # (P)
-# serine_count = list() # (S)
-# threonine_count = list() # (T)
-# tryptophan_count = list() # (W)
-# tyrosine_count = list() # (Y)
-# valine_count = list() # (V)
-
 alanine_count,arginine_count,asparagine_count,aspartic_acid_count,cysteine_count,glutamine_count,glutamic_count,\
 glycine_count,histidine_count,isoleucine_count,leucine_count,lysine_count,methionine_count,phenylalanine_count,\
 proline_count,serine_count,threonine_count,tryptophan_count,tyrosine_count,valine_count = ([] for i in range(20))
@@ -237,7 +216,12 @@ g4_series_ratios = [hydro_1r, hydro_2r, hydro_3r, n_van_vol_1r, n_van_vol_2r, n_
 
 # can add names of classes here
 g_series_name_list = ['Polar','Neutral','Hydrophobicity','0-2.78','2.95-4.0','4.03-8.08','4.9-6.2','8.0-9.2','10.4-13.0','0-1.08','0.128-0.186','0.219-0.409',\
-                    'Positive','Neutral','Negative','Helix','Strand','Coil',]
+                    'Positive','Neutral','Negative','Helix','Strand','Coil','Buried','Exposed','Intermediate','-0.20~0.16','-0.3~ -0.52','-0.98~ -2.46','High (5-21%)',\
+                    'Medium (1.12-3.64%)','Low (0-0.83%)','High (1.21-2.02)','Medium (0.63-1.12)','Low (0.14-0.29)','High (4-30%)','Medium (1-3%)','Low (0-1%)',\
+                    'High (25-100%)','Medium (5-18%)','Low (0-4%)','High (0.25-11)','Medium (-0.25 – 0.17)','Low (-0.3 - -0.8)','High (1.18-2.07)','Medium (0.84-1.16)',\
+                    'Low (0.41-0.8)','High (0.95-1.8)','Medium (0.5-0.95)','Low (0-0.5)','High (≥2.25)','Medium (1.6-2.3)','Low (≤1.5)','High (≥1.4)','Medium (0.79-1.21)',\
+                    'Low (≤0.76)','High (477-1197)','Medium (95-423)','Low (<95)','Low (75-105)','Medium (115-155)','High (165-204)','-4.2 - -3.3','-3.07 – 2.26','-1.78 - -1.05',\
+                    '>1','1','0','>1','1','0','High (9-65 g/100g)','Medium (1.14-7.44 g/100g)','Low (0.048-0.82g/100g)','Very flexible','Moderately flexible','Less flexible',]
 
 
 for  seq_str in (sequenceLabel):
