@@ -309,12 +309,12 @@ for i in range(len(g4_series_ratios)):
 # insert columns to df here
 # naive columns based purely on counts of numbers
 insert_column(data,'seq_len', feature_length, col_pos)
-insert_column(data,'most freq amino',max_letter_list,col_pos)
+# insert_column(data,'most freq amino',max_letter_list,col_pos)
 insert_column(data,'max_num',max_letter_count,col_pos)
-insert_column(data,'max ratio',max_count_ratio,col_pos)
-insert_column(data,'least freq amino',least_letter_list,col_pos)
+# insert_column(data,'max ratio',max_count_ratio,col_pos)
+# insert_column(data,'least freq amino',least_letter_list,col_pos)
 insert_column(data,'least_num',least_letter_count,col_pos)
-insert_column(data,'not in seq',no_letter_list,col_pos)
+# insert_column(data,'not in seq',no_letter_list,col_pos)
 insert_column(data,'start with M',seq_start_list,col_pos)
 
 
