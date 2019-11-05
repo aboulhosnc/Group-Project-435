@@ -59,14 +59,14 @@ dnaLabel = list()
 dnaLabel = data['label'].tolist()
 
 #convert label  for each type DNA RNA etc
-def  convertLabel (list, word):
-    list2 = list()
+def  convertLabel (list, word, temp_list):
+    temp_list.clear()
     for i in list:
         if ( i == word):
             list2.append(1)
         else:
             list2.append(0)
-    return list2
+    return temp_list
 
 
 
@@ -330,9 +330,11 @@ data = data.drop('label',1)
 
 label_list = ['DNA','DRNA','DRNA','nonDRNA',]
 
-
+list2 = list()
 for num, value in enumerate(label_list):
-    insert_column(data,value, convertLabel(dnaLabel), col_pos)
+    temp_list = convertLabel(dnaLabel,value,list2)
+    # insert_column(data,value, convertLabel(dnaLabel,value, list2), col_pos)
+    insert_column(data,value, temp_list, col_pos)
     data.to_csv("output_" + value + ".csv", index=False, header = True)
 
 
