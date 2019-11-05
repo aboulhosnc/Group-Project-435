@@ -312,7 +312,7 @@ for i in range(len(g4_series_ratios)):
 insert_column(data,'seq_len', feature_length, col_pos)
 insert_column(data,'max_num',max_letter_count,col_pos)
 insert_column(data,'least_num',least_letter_count,col_pos)
-insert_column(data,'start with M',seq_start_list,col_pos)
+insert_column(data,'start_with_M',seq_start_list,col_pos)
 
 data = data.drop('sequence', 1)
 data.to_csv("output_svm.csv", index=False, header = True)
