@@ -58,6 +58,17 @@ def fill_in(list):
 dnaLabel = list()
 dnaLabel = data['label'].tolist()
 
+#convert label  for each type DNA RNA etc
+def  convertLabel (list, word):
+    list2 = list()
+    for i in list:
+        if ( i == word):
+            list2.append(1)
+        else:
+            list2.append(0)
+    return list2
+
+
 
 # add sequence to a list
 sequenceLabel = list()
@@ -315,7 +326,14 @@ insert_column(data,'least_num',least_letter_count,col_pos)
 insert_column(data,'start_with_M',seq_start_list,col_pos)
 
 data = data.drop('sequence', 1)
-data.to_csv("output_svm.csv", index=False, header = True)
+data = data.drop('label',1)
+
+label_list = ['DNA','DRNA','DRNA','nonDRNA',]
+
+
+for num, value in enumerate(label_list):
+    insert_column(data,value, convertLabel(dnaLabel), col_pos)
+    data.to_csv("output_" + value + ".csv", index=False, header = True)
 
 
 
