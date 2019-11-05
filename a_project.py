@@ -69,7 +69,7 @@ max_letter_list = list() # list of the max letter in the list
 max_letter_count = list() # list of max num for each row
 max_count_ratio = list() # ratio of max number of total number
 least_letter_count = list() # least letter number
-least_letter_list = list() # least letter description
+least_letter_list = list() # least letter descriptionstring2 = string2 + ' ' + word
 no_letter_list = list() # list for all
 seq_start_list = list() # list for if it starts with m or not
 
@@ -100,7 +100,7 @@ hydro_3 = ['C','L','V','I','M','F','W']
 hydro_1r, hydro_2r, hydro_3r = list(), list(), list()
 
 #normalized van der Wals Volume 2
-n_van_vol_1 = ['G','A','S','T','P','D'] 
+n_van_vol_1 = ['G','A','S','T','P','D']
 n_van_vol_2 = ['N','V','E','Q','I','L']
 n_van_vol_3 = ['M','H','K','F','R','Y','W']
 n_van_vol_1r, n_van_vol_2r, n_van_vol_3r = list(), list(), list()
@@ -197,7 +197,7 @@ sol_wat_1r, sol_wat_2r, sol_wat_3r = ([] for i in range(3))
 acid_flex_1, acid_flex_2, acid_flex_3 = list('EGKNQS'), list('ADHIPRTV'), list('CFLMWY')
 acid_flex_1r, acid_flex_2r, acid_flex_3r = ([] for i in range(3))
 
-#list of list (each item in categor), 
+#list of list (each item in categor),
 g_series_list = [hydro_1, hydro_2, hydro_3, n_van_vol_1, n_van_vol_2, n_van_vol_3, polarity_1, polarity_2, polarity_3,polarizability_1, polarizability_2, polarizability_3, charge_1, charge_2, charge_3,\
                 second_1, second_2, second_3, solv_1, solv_2, solv_3, sur_1, sur_2, sur_3, pro_bogan_1, pro_bogan_2, pro_bogan_3, pro_ma_1, pro_ma_2, pro_ma_3,\
                 pro_sch_1, pro_sch_2, pro_sch_3, pro_ahmed_1, pro_ahmed_2, pro_ahmed_3, pro_kim_1, pro_kim_2, pro_kim_3, pro_ellis_1, pro_ellis_2, pro_ellis_3,\
@@ -240,8 +240,8 @@ for  seq_str in (sequenceLabel):
     g_series_count(seq_str, str_len, g_series_list, g4_series_ratios)
 
     # can be eith Yes No or 1 0
-    # (seq_start_list.append(1)if seq_str.startswith('M')else seq_start_list.append(0))
-    (seq_start_list.append('Yes')if seq_str.startswith('M')else seq_start_list.append('No'))
+    (seq_start_list.append(1)if seq_str.startswith('M')else seq_start_list.append(0))
+    # (seq_start_list.append('Yes')if seq_str.startswith('M')else seq_start_list.append('No'))
 
 
     #loop to go through each character in string
@@ -251,7 +251,7 @@ for  seq_str in (sequenceLabel):
         temp_str = sequence_letter_list[num] #individual character
 
 
-        
+
 
         #checks highest count for max number and index
         if(temp_num > max_num):
@@ -323,6 +323,3 @@ data.to_csv("output.csv", index=False, header = True)
 
 # print (data)
 #
-
-
-
