@@ -314,7 +314,7 @@ insert_column(data,'max_num',max_letter_count,col_pos)
 insert_column(data,'least_num',least_letter_count,col_pos)
 insert_column(data,'start with M',seq_start_list,col_pos)
 
-data.drop(0)
+data = data.drop('sequence', 1)
 data.to_csv("output_svm.csv", index=False, header = True)
 
 
