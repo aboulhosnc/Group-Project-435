@@ -11,9 +11,14 @@ from cycler import cycler
 data = pd.read_csv('sequences_training(1).csv', header = None)
 data.columns = ['sequence', 'label']
 
+df = pd.DataFrame()
+# df_dna = pd.DataFrame()
+# df_rna = pd.DataFrame()
+# df_drna = pd.DataFrame()
+# df_nondrna = pd.DataFrame()
 
 # global variables
-col_pos = 1 # for adding number
+col_pos = 0 # for adding number
 # test_string = 'CGQGFSVKSDVITHQRTHTGEKLYVCRECGRGFSWKSHLLIHQRIHTGEKPYVCRECGRGFSWQSVLLTHQRTHTG'\
 #                 + 'EKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSWQSVLL'\
 #                 + 'THQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSRQ'\
@@ -68,7 +73,12 @@ def  convertLabel (list, word, temp_list):
             temp_list.append(0)
     return temp_list
 
-
+def output_column(data_2,label_col_list,lab_list,value):
+    
+    temp_list = convertLabel(label_col_list,value,lab_list)
+    insert_column(data_2, value, temp_list, col_pos)
+    data_2.to_csv("output_" + value + ".csv", index=False, header = True)
+    return data_2
 
 # add sequence to a list
 sequenceLabel = list()
@@ -304,7 +314,7 @@ fill_in(no_letter_list)
 # for loop to insert column count into csv
 # count of each letter in the sequence
 for i in range(len(feature_list)):
-    insert_column(data,sequence_letter_list[i] + '_count',feature_list[i],(col_pos))
+    insert_column(df,sequence_letter_list[i] + '_count',feature_list[i],(col_pos))
     # print (i)
 
 
@@ -313,36 +323,81 @@ whole_id = 1
 for i in range(len(g4_series_ratios)):
     increment = ((i %3) + 1)
     # insert_column(data,'G4.C.'+ str(whole_id) + '.' + str(increment) +'.' + g_series_name_list[i] , g4_series_ratios[i],(col_pos))
-    insert_column(data,'G4.C.'+ str(whole_id) + '.' + str(increment) , g4_series_ratios[i],(col_pos))
+    insert_column(df,'G4.C.'+ str(whole_id) + '.' + str(increment) , g4_series_ratios[i],(col_pos))
     whole_id = ((whole_id + 1) if increment == 3 else (whole_id))
 
 
 
 # insert columns to df here
 # naive columns based purely on counts of numbers
-insert_column(data,'seq_len', feature_length, col_pos)
-insert_column(data,'max_num',max_letter_count,col_pos)
-insert_column(data,'least_num',least_letter_count,col_pos)
-insert_column(data,'start_with_M',seq_start_list,col_pos)
+insert_column(df,'seq_len', feature_length, col_pos)
+insert_column(df,'max_num',max_letter_count,col_pos)
+insert_column(df,'least_num',least_letter_count,col_pos)
+insert_column(df,'start_with_M',seq_start_list,col_pos)
 
 
 
 
-label_list = ['DNA','RNA','DRNA','nonDRNA',]
 
-temp_list = list()
-for num, value in enumerate(label_list):
-    print (value)
-    temp_list = convertLabel(dnaLabel,value,temp_list)
-    # insert_column(data,value, convertLabel(dnaLabel,value, list2), col_pos)
-    insert_column(data,value, temp_list, col_pos)
-    data.to_csv("output_" + value + ".csv", index=False, header = True)
-    data = data.drop(value,1)
-    temp_list.clear()
-    print(value)
 
-data = data.drop('sequence', 1)
-data = data.drop('label',1)
+
+# data = data.drop('sequence', axis =  1, inplace=True)
+# data = data.drop('label', axis =  1, inplace=True )
+
+label_list = ['DNA','RNA','DRNA','nonDRNA']
+
+# temp_list = list()
+# for num, value in enumerate(label_list):
+#     print (value)
+#     temp_list = convertLabel(dnaLabel,value,temp_list)
+#     # insert_column(data,value, convertLabel(dnaLabel,value, list2), col_pos)
+#     insert_column(data,value, temp_list, col_pos)
+#     # df.to_csv("output_" + value + ".csv", index=False, header = True)
+    
+#     temp_list.clear()
+#     print(value)
+
+
+
+# df_dna = output_column(data,df_dna,dnaLabel,label_list,'DNA')
+# df_rna = output_column(data,df_dna,dnaLabel,label_list,'RNA')
+# output_column(df,df_dna,dnaLabel,label_list,'DNA')
+# output_column(df,df_dna,dnaLabel,label_list,'RNA')
+# output_column(df,df_dna,dnaLabel,label_list,'DRNA')
+# output_column(df,df_dna,dnaLabel,label_list,'nonDRNA')
+
+df_dna = df.copy()
+df_rna = df.copy()
+df_drna = df.copy()
+df_nondrna = df.copy()
+
+
+df_dna = output_column(df_dna,dnaLabel,label_list,'DNA')
+del df_dna['DNA']
+df_rna = output_column(df_dna,dnaLabel,label_list,'RNA')
+del df_dna['RNA']
+# df_drna = output_column(df_dna,dnaLabel,label_list,'DRNA')
+# del df_dna['DRNA']
+# df_nondrna = output_column(df_dna,dnaLabel,label_list,'nonDRNA')
+
+# print(df_nondrna)
+# print(df_nondrna)
+
+# print(df_nondrna)
+print(df_rna)
+
+# df.drop(label_list[0],axis = 1)
+
+# df.to_csv("test.csv", index=False, header = True)
+
+# for col in df.columns: 
+#     print(col) 
+
+# df.drop(columns = ['DNA','RNA'],axis = 1)
+# del df['DNA']
+
+# for col in df.columns: 
+#     print(col) 
 
 # print(len(dnaLabel))
 # print(len(max_letter_list))
@@ -377,5 +432,5 @@ data = data.drop('label',1)
 
 
 
-# print (data)
+# print (df)
 #
