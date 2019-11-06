@@ -78,7 +78,7 @@ def  convertLabel (list, word, temp_list):
 # deletes value
 def output_column(data_2,label_col_list,lab_list,value):
     global col_pos
-    print('value is :', value)
+    # print('value is :', value)
     temp_list = convertLabel(label_col_list,value,lab_list)
     insert_column(data_2, value, temp_list, (col_pos))
     data_2.to_csv("output_" +(value) + ".csv", index=False, header = True)
@@ -344,36 +344,16 @@ insert_column(df,'least_num',least_letter_count,col_pos)
 insert_column(df,'start_with_M',seq_start_list,col_pos)
 
 
-
-
-
-
-
-# data = data.drop('sequence', axis =  1, inplace=True)
-# data = data.drop('label', axis =  1, inplace=True )
-
 label_list = ['DNA','RNA','DRNA','nonDRNA']
 
-# output_column(df,dnaLabel,label_list,'DNA')
-# output_column(df,dnaLabel,label_list,'RNA')
-# output_column(df,dnaLabel,label_list,'DRNA')
-# output_column(df,dnaLabel,label_list,'nonDRNA')
+output_column(df,dnaLabel,label_list,'DNA')
+output_column(df,dnaLabel,label_list,'RNA')
+output_column(df,dnaLabel,label_list,'DRNA')
+output_column(df,dnaLabel,label_list,'nonDRNA')
 
-output_column(df,dnaLabel,label_list,label_list[0])
-# output_column(df,dnaLabel,label_list,'RNA')
-# output_column(df,dnaLabel,label_list,'DRNA')
-# output_column(df,dnaLabel,label_list,'nonDRNA')
 
-# for i in (label_list):
-#     print('value is :', i)
-#     # output_column(df,dnaLabel,label_list,i)
-#     # print(i)
-#
-# for i in range (len(label_list)):
-#     print('value is :', label_list[i])
-#     output_column(df,dnaLabel,label_list,label_list[i])
-#     # print(str(i) + ',' + label_list[i])
-#     # print(label_list[i])
+
+
 
 
 
