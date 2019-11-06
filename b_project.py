@@ -37,8 +37,8 @@ data = data.sample(frac=1).reset_index(drop=True)
 
 
 # function to add columns to it
-def insert_column (df, name, feature, col_position):
-    df.insert (col_position, name, feature)
+def insert_column (df_1, name, feature, col_position):
+    df_1.insert (col_position, name, feature)
     global col_pos
     col_pos = ( col_pos + 1)
 
@@ -373,18 +373,21 @@ df_nondrna = df.copy()
 
 
 df_dna = output_column(df_dna,dnaLabel,label_list,'DNA')
-del df_dna['DNA']
-df_rna = output_column(df_dna,dnaLabel,label_list,'RNA')
-del df_dna['RNA']
-# df_drna = output_column(df_dna,dnaLabel,label_list,'DRNA')
-# del df_dna['DRNA']
-# df_nondrna = output_column(df_dna,dnaLabel,label_list,'nonDRNA')
-
-# print(df_nondrna)
-# print(df_nondrna)
-
-# print(df_nondrna)
+# del df_dna['DNA']
+print(df_dna)
+# print(df_rna)
+# print (len(df.index))
+df_rna = output_column(df_rna,dnaLabel,label_list,'RNA')
 print(df_rna)
+# del df_dna['RNA']
+# df_drna = output_column(df_drna,dnaLabel,label_list,'DRNA')
+# del df_dna['DRNA']
+# df_nondrna = output_column(df_nondrna,dnaLabel,label_list,'nonDRNA')
+
+# print(df_nondrna)
+# print(df_nondrna)
+
+# print(df_nondrna)
 
 # df.drop(label_list[0],axis = 1)
 
