@@ -73,12 +73,18 @@ def  convertLabel (list, word, temp_list):
             temp_list.append(0)
     return temp_list
 
+# inserts column of value only
+# resets colummn reset_index
+# deletes value
 def output_column(data_2,label_col_list,lab_list,value):
-    
+    global col_pos
     temp_list = convertLabel(label_col_list,value,lab_list)
-    insert_column(data_2, value, temp_list, col_pos)
+    insert_column(data_2, value, temp_list, (col_pos))
     data_2.to_csv("output_" + value + ".csv", index=False, header = True)
-    return data_2
+
+    col_pos = col_pos - 1
+    del df[value]
+
 
 # add sequence to a list
 sequenceLabel = list()
@@ -349,36 +355,43 @@ label_list = ['DNA','RNA','DRNA','nonDRNA']
 # temp_list = list()
 # for num, value in enumerate(label_list):
 #     print (value)
+#     print(col_pos)
 #     temp_list = convertLabel(dnaLabel,value,temp_list)
 #     # insert_column(data,value, convertLabel(dnaLabel,value, list2), col_pos)
-#     insert_column(data,value, temp_list, col_pos)
-#     # df.to_csv("output_" + value + ".csv", index=False, header = True)
-    
+#     insert_column(df,value, temp_list, col_pos)
+#     print(col_pos)
+#     df.to_csv("output_" + value + ".csv", index=False, header = True)
+#     col_pos = col_pos - 1
+#     del df[value]
 #     temp_list.clear()
 #     print(value)
 
 
 
+
 # df_dna = output_column(data,df_dna,dnaLabel,label_list,'DNA')
 # df_rna = output_column(data,df_dna,dnaLabel,label_list,'RNA')
-# output_column(df,df_dna,dnaLabel,label_list,'DNA')
-# output_column(df,df_dna,dnaLabel,label_list,'RNA')
-# output_column(df,df_dna,dnaLabel,label_list,'DRNA')
-# output_column(df,df_dna,dnaLabel,label_list,'nonDRNA')
 
-df_dna = df.copy()
-df_rna = df.copy()
-df_drna = df.copy()
-df_nondrna = df.copy()
+output_column(df,dnaLabel,label_list,'DNA')
+output_column(df,dnaLabel,label_list,'RNA')
+output_column(df,dnaLabel,label_list,'DRNA')
+output_column(df,dnaLabel,label_list,'nonDRNA')
 
+# df_dna = df.copy()
+# df_rna = df.copy()
+# df_drna = df.copy()
+# df_nondrna = df.copy()
 
-df_dna = output_column(df_dna,dnaLabel,label_list,'DNA')
-# del df_dna['DNA']
-print(df_dna)
+# print(col_pos)
+# df_dna = output_column(df_dna,dnaLabel,label_list,'DNA')
+# # print(col_pos)
+# # del df_dna['DNA']
+# print(df_dna)
+# # print(df_rna)
+# # print (len(df.index))
+# df_rna = output_column(df_rna,dnaLabel,label_list,'RNA')
 # print(df_rna)
-# print (len(df.index))
-df_rna = output_column(df_rna,dnaLabel,label_list,'RNA')
-print(df_rna)
+# print(col_pos)
 # del df_dna['RNA']
 # df_drna = output_column(df_drna,dnaLabel,label_list,'DRNA')
 # del df_dna['DRNA']
@@ -393,14 +406,14 @@ print(df_rna)
 
 # df.to_csv("test.csv", index=False, header = True)
 
-# for col in df.columns: 
-#     print(col) 
+# for col in df.columns:
+#     print(col)
 
 # df.drop(columns = ['DNA','RNA'],axis = 1)
 # del df['DNA']
 
-# for col in df.columns: 
-#     print(col) 
+# for col in df.columns:
+#     print(col)
 
 # print(len(dnaLabel))
 # print(len(max_letter_list))
