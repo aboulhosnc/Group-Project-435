@@ -63,9 +63,9 @@ def  convertLabel (list, word, temp_list):
     temp_list.clear()
     for i in list:
         if ( i == word):
-            list2.append(1)
+            temp_list.append(1)
         else:
-            list2.append(0)
+            temp_list.append(0)
     return temp_list
 
 
@@ -325,17 +325,53 @@ insert_column(data,'max_num',max_letter_count,col_pos)
 insert_column(data,'least_num',least_letter_count,col_pos)
 insert_column(data,'start_with_M',seq_start_list,col_pos)
 
-data = data.drop('sequence', 1)
-data = data.drop('label',1)
 
-label_list = ['DNA','DRNA','DRNA','nonDRNA',]
 
-list2 = list()
+
+label_list = ['DNA','RNA','DRNA','nonDRNA',]
+
+temp_list = list()
 for num, value in enumerate(label_list):
-    temp_list = convertLabel(dnaLabel,value,list2)
+    print (value)
+    temp_list = convertLabel(dnaLabel,value,temp_list)
     # insert_column(data,value, convertLabel(dnaLabel,value, list2), col_pos)
     insert_column(data,value, temp_list, col_pos)
     data.to_csv("output_" + value + ".csv", index=False, header = True)
+    data = data.drop(value,1)
+    temp_list.clear()
+    print(value)
+
+data = data.drop('sequence', 1)
+data = data.drop('label',1)
+
+# print(len(dnaLabel))
+# print(len(max_letter_list))
+
+# print(temp_list)
+# for num, value in enumerate(label_list):
+
+    # print (label_list[num])
+    # print(temp_list)
+    # print (num)
+    # print(len(temp_list))
+
+# for i in range(len(label_list)):
+#     temp_list = convertLabel(dnaLabel,label_list[i],list2)
+#     insert_column(data,label_list[i],temp_list,col_pos)
+#     temp_list.clear()
+
+# temp_dna = convertLabel(dnaLabel,label_list[0],temp_list)
+# temp_RNA = convertLabel(dnaLabel,label_list[1],temp_list)
+# temp_DRNA = convertLabel(dnaLabel,label_list[2],temp_list)
+# temp_nonDRNA = convertLabel(dnaLabel,label_list[3],temp_list)
+#
+
+
+# print(len(temp_dna))
+# insert_column(data,'DNA',temp_dna, col_pos)
+# insert_column(data,'DNA',dnaLabel, col_pos)
+# data.to_csv("output_" + label_list[0], + ".csv", index=False, header = True)
+
 
 
 
