@@ -438,15 +438,15 @@ insert_column(df,'least_num',least_letter_count,col_pos)
 insert_column(df,'start_with_M',seq_start_list,col_pos)
 # insert_column(df,'col_cat_num',seq_num_category_list,col_pos)
 insert_column(df,'g_t_ratio',g_transition_column,col_pos)
-insert_column(df,'g_d_ratio',g_distribution_column,col_pos)
+# insert_column(df,'g_d_ratio',g_distribution_column,col_pos)
 
 
 label_list = ['DNA','RNA','DRNA','nonDRNA']
 
-# output_column(df,dnaLabel,label_list,'DNA')
-# output_column(df,dnaLabel,label_list,'RNA')
-# output_column(df,dnaLabel,label_list,'DRNA')
-# output_column(df,dnaLabel,label_list,'nonDRNA')
+output_column(df,dnaLabel,label_list,'DNA')
+output_column(df,dnaLabel,label_list,'RNA')
+output_column(df,dnaLabel,label_list,'DRNA')
+output_column(df,dnaLabel,label_list,'nonDRNA')
 
 
 
