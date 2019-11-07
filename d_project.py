@@ -31,6 +31,15 @@ test_result = '32132223311311222222'
 
 
 print(len(test_result))
+temp_num_one = test_result.count('1')
+temp_num_two = test_result.count('2')
+temp_num_three = test_result.count('3')
+print(temp_num_one)
+print(temp_num_two)
+print(temp_num_three)
+# for num, val in enumerate(test_result):
+    
+
 
 
 
