@@ -89,6 +89,50 @@ def output_column(data_2,label_col_list,lab_list,value):
     col_pos = col_pos - 1
     del df[value]
 
+def g_transition_function(str_test, list_result):
+    count = 0
+    str_len = len(str_test)
+    for i in range(len(str_test)-1):
+        if str_test[i]!=str_test[i+1]:
+            count = count + 1
+    tem_val = count / str_len
+
+    list_result.append(tem_val)
+        # print(test_count)
+
+
+
+         
+
+def g_number_convert (g_list, result_list, seq_test,g_trans,g_dest):
+    seq_copy = ''
+    # seq_len = len(seq_test)
+    for i in range(0, (24*3), 3):
+        list_1, list_2, list_3 = g_list[i], g_list[i+1], g_list[i+2]
+        for element in (seq_test):
+            # print (element)
+            if(element in list_1):
+                # result_list.append(1)
+                seq_copy = seq_copy + '1'
+                # print('1')
+            elif(element in list_2):
+                # result_list.append(2)
+                seq_copy = seq_copy + '2'
+                # print('2')
+            elif(element in list_3):
+                # result_list.append(3)
+                seq_copy = seq_copy + '3'
+                # print('3')
+        
+    result_list.append(seq_copy)
+    g_transition_function(seq_copy,g_trans)
+    # g_destribution_function(result_list,g_dest,seq_len)
+    
+    
+
+
+# def
+
 
 # add sequence to a list
 sequenceLabel = list()
@@ -103,6 +147,9 @@ least_letter_count = list() # least letter number
 least_letter_list = list() # least letter descriptionstring2 = string2 + ' ' + word
 no_letter_list = list() # list for all
 seq_start_list = list() # list for if it starts with m or not
+seq_num_category_list = list() # list of sequences with number values instead 
+g_transition_column = list() # column for transition numbers
+g_distribution_column = list() #column for distribution numbers
 
 
 #lists of counts of amino acids
@@ -251,11 +298,26 @@ pro_im_t,mol_t,clog_t,no_hy_d_t,no_hy_a_t,sol_t,acid_t = ([] for i in range(24))
 g4_transtion_list = [hydro_t,n_van_vol_t,polarity_t,polarization_t,charge_t,second_t,solv_t,sur_t,pro_b_t,pro_m_t,pro_s_t,pro_a_t,pro_k_t,pro_eli_t,pro_ph_t,pro_lig_k_t,pro_lig_v_t,\
 pro_im_t,mol_t,clog_t,no_hy_d_t,no_hy_a_t,sol_t,acid_t]
 
-print(len(g4_transtion_list))
-test_list = list()
+# print(len(g4_transtion_list))
+# test_list = list()
+test_seq = 'MTEITAAMVKELRESTGAGA'
+test_result = '32132223311311222222'
 
-for i in range(24):
-    test_list.append(i)
+# for count  in range(len(g4_transtion_list)):
+# for num, value  in enumerate(g_series_list):
+#     for element in range(0, len(test_seq)): 
+#         if(num % 3 == 0):
+#             if(element in value):
+#                 g4_transtion_list[0].append(1)
+#         elif(num %3 == 1):
+#             if(element in value):
+#                 g4_transition_list[0].append(2)
+#         elif(num % 3 == 2):
+#             if(element in value):
+#                 g4_t
+
+# for i in range(72, 3):
+    # print(i)
 
 
 
@@ -301,7 +363,7 @@ for  seq_str in (sequenceLabel):
         feature_list[num].append(temp_num)
         temp_str = sequence_letter_list[num] #individual character
 
-
+        
 
 
         #checks highest count for max number and index
@@ -325,6 +387,11 @@ for  seq_str in (sequenceLabel):
         elif(temp_num == 0):
             temp_tot_none = temp_str + temp_tot_none
 
+         
+    # print(len(seq_num_category_list))
+    # g_number_convert(g_series_list,seq_num_category_list,g_transition_column, g_distribution_column, seq_str,str_len)  
+    g_number_convert(g_series_list,seq_num_category_list,seq_str, g_transition_column, g_distribution_column)   
+
 
     feature_length.append(str_len)
     max_letter_list.append(max_num_str_tot) # all letters that are max
@@ -333,6 +400,11 @@ for  seq_str in (sequenceLabel):
     least_letter_list.append(least_num_str_tot) # amount
     least_letter_count.append(least_num)
     no_letter_list.append(temp_tot_none)
+
+
+
+
+
 
 #feature for number of a in each drawLine
 
@@ -364,6 +436,9 @@ insert_column(df,'seq_len', feature_length, col_pos)
 insert_column(df,'max_num',max_letter_count,col_pos)
 insert_column(df,'least_num',least_letter_count,col_pos)
 insert_column(df,'start_with_M',seq_start_list,col_pos)
+# insert_column(df,'col_cat_num',seq_num_category_list,col_pos)
+insert_column(df,'g_t_ratio',g_transition_column,col_pos)
+insert_column(df,'g_d_ratio',g_distribution_column,col_pos)
 
 
 label_list = ['DNA','RNA','DRNA','nonDRNA']
@@ -382,5 +457,5 @@ label_list = ['DNA','RNA','DRNA','nonDRNA']
 
 
 
-# print (df)
+print (df)
 #
