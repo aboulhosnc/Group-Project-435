@@ -19,13 +19,14 @@ df = pd.DataFrame()
 
 # global variables
 col_pos = 0 # for adding number
-# test_string = 'CGQGFSVKSDVITHQRTHTGEKLYVCRECGRGFSWKSHLLIHQRIHTGEKPYVCRECGRGFSWQSVLLTHQRTHTG'\
-#                 + 'EKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSWQSVLL'\
-#                 + 'THQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSRQ'\
-#                 + 'SVLLTHQRRHTGEKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRG'\
-#                 + 'FSNKSHLLRHQRTHTGEKPYVCRECGRGFRDKSHLLSHQRTHTGEKPYVCRECGRGFRDKSNLLSHQRTHTGEKPYVCREC'\
-#                 + 'GRGFSWQSVLLRHQRTHTGEKPYVCRECGRGFRDKSNLLSHQRTHTGEKPYVCRECGRGFRNKSHLLRHQRTHTGEKPYVCR'\
-#                 + 'ECGRGFSDRSSLCYHQRTHTGEKPYVCREDE'
+test_string = 'CGQGFSVKSDVITHQRTHTGEKLYVCRECGRGFSWKSHLLIHQRIHTGEKPYVCRECGRGFSWQSVLLTHQRTHTG'\
+                + 'EKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSWQSVLL'\
+                + 'THQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRGFSRQ'\
+                + 'SVLLTHQRRHTGEKPYVCRECGRGFSRQSVLLTHQRRHTGEKPYVCRECGRGFSWQSVLLTHQRTHTGEKPYVCRECGRG'\
+                + 'FSNKSHLLRHQRTHTGEKPYVCRECGRGFRDKSHLLSHQRTHTGEKPYVCRECGRGFRDKSNLLSHQRTHTGEKPYVCREC'\
+                + 'GRGFSWQSVLLRHQRTHTGEKPYVCRECGRGFRDKSNLLSHQRTHTGEKPYVCRECGRGFRNKSHLLRHQRTHTGEKPYVCR'\
+                + 'ECGRGFSDRSSLCYHQRTHTGEKPYVCREDE'
+
 
 
 
@@ -51,6 +52,7 @@ def g_series_count (seq,seq_len,  list_all, list_ratio_all):
 
         tem_num = (tem_num / seq_len)
         list_ratio_all[list_count].append(tem_num)
+
 
 
 #fill in missing data with vales
@@ -243,6 +245,20 @@ g4_series_ratios = [hydro_1r, hydro_2r, hydro_3r, n_van_vol_1r, n_van_vol_2r, n_
                     no_hy_acpt_1r, no_hy_acpt_2r, no_hy_acpt_3r, sol_wat_1r, sol_wat_2r, sol_wat_3r, acid_flex_1r, acid_flex_2r, acid_flex_3r]
 
 
+hydro_t,n_van_vol_t,polarity_t,polarization_t,charge_t,second_t,solv_t,sur_t,pro_b_t,pro_m_t,pro_s_t,pro_a_t,pro_k_t,pro_eli_t,pro_ph_t,pro_lig_k_t,pro_lig_v_t,\
+pro_im_t,mol_t,clog_t,no_hy_d_t,no_hy_a_t,sol_t,acid_t = ([] for i in range(24))
+
+g4_transtion_list = [hydro_t,n_van_vol_t,polarity_t,polarization_t,charge_t,second_t,solv_t,sur_t,pro_b_t,pro_m_t,pro_s_t,pro_a_t,pro_k_t,pro_eli_t,pro_ph_t,pro_lig_k_t,pro_lig_v_t,\
+pro_im_t,mol_t,clog_t,no_hy_d_t,no_hy_a_t,sol_t,acid_t]
+
+print(len(g4_transtion_list))
+test_list = list()
+
+for i in range(24):
+    test_list.append(i)
+
+
+
 # can add names of classes here
 g_series_name_list = ['Polar','Neutral','Hydrophobicity','0-2.78','2.95-4.0','4.03-8.08','4.9-6.2','8.0-9.2','10.4-13.0','0-1.08','0.128-0.186','0.219-0.409',\
                     'Positive','Neutral','Negative','Helix','Strand','Coil','Buried','Exposed','Intermediate','-0.20~0.16','-0.3~ -0.52','-0.98~ -2.46','High (5-21%)',\
@@ -251,6 +267,12 @@ g_series_name_list = ['Polar','Neutral','Hydrophobicity','0-2.78','2.95-4.0','4.
                     'Low (0.41-0.8)','High (0.95-1.8)','Medium (0.5-0.95)','Low (0-0.5)','High (≥2.25)','Medium (1.6-2.3)','Low (≤1.5)','High (≥1.4)','Medium (0.79-1.21)',\
                     'Low (≤0.76)','High (477-1197)','Medium (95-423)','Low (<95)','Low (75-105)','Medium (115-155)','High (165-204)','-4.2 - -3.3','-3.07 – 2.26','-1.78 - -1.05',\
                     '>1','1','0','>1','1','0','High (9-65 g/100g)','Medium (1.14-7.44 g/100g)','Low (0.048-0.82g/100g)','Very flexible','Moderately flexible','Less flexible',]
+
+# g_series_transition(test_string, len(test_string), g_series_list, g4_transtion_list)
+
+
+
+# def g_series_transition (seq, seq_len, list_all, list_ratio_all)
 
 
 for  seq_str in (sequenceLabel):
@@ -346,10 +368,10 @@ insert_column(df,'start_with_M',seq_start_list,col_pos)
 
 label_list = ['DNA','RNA','DRNA','nonDRNA']
 
-output_column(df,dnaLabel,label_list,'DNA')
-output_column(df,dnaLabel,label_list,'RNA')
-output_column(df,dnaLabel,label_list,'DRNA')
-output_column(df,dnaLabel,label_list,'nonDRNA')
+# output_column(df,dnaLabel,label_list,'DNA')
+# output_column(df,dnaLabel,label_list,'RNA')
+# output_column(df,dnaLabel,label_list,'DRNA')
+# output_column(df,dnaLabel,label_list,'nonDRNA')
 
 
 
