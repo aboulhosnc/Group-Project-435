@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.4.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.4.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="logfile" value="/Users/harrisoncook/School/CMSC435/Project/out.log"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="9.4.001" expanded="true" height="68" name="Read CSV" width="90" x="45" y="34">
+        <parameter key="csv_file" value="C:\Users\Chady\Desktop\Data Science\Group-Project-435\input_all).csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="true"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="windows-1252"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="A_count.true.integer.attribute"/>
+          <parameter key="1" value="R_count.true.integer.attribute"/>
+          <parameter key="2" value="N_count.true.integer.attribute"/>
+          <parameter key="3" value="D_count.true.integer.attribute"/>
+          <parameter key="4" value="C_count.true.integer.attribute"/>
+          <parameter key="5" value="Q_count.true.integer.attribute"/>
+          <parameter key="6" value="E_count.true.integer.attribute"/>
+          <parameter key="7" value="G_count.true.integer.attribute"/>
+          <parameter key="8" value="H_count.true.integer.attribute"/>
+          <parameter key="9" value="I_count.true.integer.attribute"/>
+          <parameter key="10" value="L_count.true.integer.attribute"/>
+          <parameter key="11" value="K_count.true.integer.attribute"/>
+          <parameter key="12" value="M_count.true.integer.attribute"/>
+          <parameter key="13" value="F_count.true.integer.attribute"/>
+          <parameter key="14" value="P_count.true.integer.attribute"/>
+          <parameter key="15" value="S_count.true.integer.attribute"/>
+          <parameter key="16" value="T_count.true.integer.attribute"/>
+          <parameter key="17" value="W_count.true.integer.attribute"/>
+          <parameter key="18" value="Y_count.true.integer.attribute"/>
+          <parameter key="19" value="V_count.true.integer.attribute"/>
+          <parameter key="20" value="G4\.C\.1\.1.true.real.attribute"/>
+          <parameter key="21" value="G4\.C\.1\.2.true.real.attribute"/>
+          <parameter key="22" value="G4\.C\.1\.3.true.real.attribute"/>
+          <parameter key="23" value="G4\.C\.2\.1.true.real.attribute"/>
+          <parameter key="24" value="G4\.C\.2\.2.true.real.attribute"/>
+          <parameter key="25" value="G4\.C\.2\.3.true.real.attribute"/>
+          <parameter key="26" value="G4\.C\.3\.1.true.real.attribute"/>
+          <parameter key="27" value="G4\.C\.3\.2.true.real.attribute"/>
+          <parameter key="28" value="G4\.C\.3\.3.true.real.attribute"/>
+          <parameter key="29" value="G4\.C\.4\.1.true.real.attribute"/>
+          <parameter key="30" value="G4\.C\.4\.2.true.real.attribute"/>
+          <parameter key="31" value="G4\.C\.4\.3.true.real.attribute"/>
+          <parameter key="32" value="G4\.C\.5\.1.true.real.attribute"/>
+          <parameter key="33" value="G4\.C\.5\.2.true.real.attribute"/>
+          <parameter key="34" value="G4\.C\.5\.3.true.real.attribute"/>
+          <parameter key="35" value="G4\.C\.6\.1.true.real.attribute"/>
+          <parameter key="36" value="G4\.C\.6\.2.true.real.attribute"/>
+          <parameter key="37" value="G4\.C\.6\.3.true.real.attribute"/>
+          <parameter key="38" value="G4\.C\.7\.1.true.real.attribute"/>
+          <parameter key="39" value="G4\.C\.7\.2.true.real.attribute"/>
+          <parameter key="40" value="G4\.C\.7\.3.true.real.attribute"/>
+          <parameter key="41" value="G4\.C\.8\.1.true.real.attribute"/>
+          <parameter key="42" value="G4\.C\.8\.2.true.real.attribute"/>
+          <parameter key="43" value="G4\.C\.8\.3.true.real.attribute"/>
+          <parameter key="44" value="G4\.C\.9\.1.true.real.attribute"/>
+          <parameter key="45" value="G4\.C\.9\.2.true.real.attribute"/>
+          <parameter key="46" value="G4\.C\.9\.3.true.real.attribute"/>
+          <parameter key="47" value="G4\.C\.10\.1.true.real.attribute"/>
+          <parameter key="48" value="G4\.C\.10\.2.true.real.attribute"/>
+          <parameter key="49" value="G4\.C\.10\.3.true.real.attribute"/>
+          <parameter key="50" value="G4\.C\.11\.1.true.real.attribute"/>
+          <parameter key="51" value="G4\.C\.11\.2.true.real.attribute"/>
+          <parameter key="52" value="G4\.C\.11\.3.true.real.attribute"/>
+          <parameter key="53" value="G4\.C\.12\.1.true.real.attribute"/>
+          <parameter key="54" value="G4\.C\.12\.2.true.real.attribute"/>
+          <parameter key="55" value="G4\.C\.12\.3.true.real.attribute"/>
+          <parameter key="56" value="G4\.C\.13\.1.true.real.attribute"/>
+          <parameter key="57" value="G4\.C\.13\.2.true.real.attribute"/>
+          <parameter key="58" value="G4\.C\.13\.3.true.real.attribute"/>
+          <parameter key="59" value="G4\.C\.14\.1.true.real.attribute"/>
+          <parameter key="60" value="G4\.C\.14\.2.true.real.attribute"/>
+          <parameter key="61" value="G4\.C\.14\.3.true.real.attribute"/>
+          <parameter key="62" value="G4\.C\.15\.1.true.real.attribute"/>
+          <parameter key="63" value="G4\.C\.15\.2.true.real.attribute"/>
+          <parameter key="64" value="G4\.C\.15\.3.true.real.attribute"/>
+          <parameter key="65" value="G4\.C\.16\.1.true.real.attribute"/>
+          <parameter key="66" value="G4\.C\.16\.2.true.real.attribute"/>
+          <parameter key="67" value="G4\.C\.16\.3.true.real.attribute"/>
+          <parameter key="68" value="G4\.C\.17\.1.true.real.attribute"/>
+          <parameter key="69" value="G4\.C\.17\.2.true.real.attribute"/>
+          <parameter key="70" value="G4\.C\.17\.3.true.real.attribute"/>
+          <parameter key="71" value="G4\.C\.18\.1.true.real.attribute"/>
+          <parameter key="72" value="G4\.C\.18\.2.true.real.attribute"/>
+          <parameter key="73" value="G4\.C\.18\.3.true.real.attribute"/>
+          <parameter key="74" value="G4\.C\.19\.1.true.real.attribute"/>
+          <parameter key="75" value="G4\.C\.19\.2.true.real.attribute"/>
+          <parameter key="76" value="G4\.C\.19\.3.true.real.attribute"/>
+          <parameter key="77" value="G4\.C\.20\.1.true.real.attribute"/>
+          <parameter key="78" value="G4\.C\.20\.2.true.real.attribute"/>
+          <parameter key="79" value="G4\.C\.20\.3.true.real.attribute"/>
+          <parameter key="80" value="G4\.C\.21\.1.true.real.attribute"/>
+          <parameter key="81" value="G4\.C\.21\.2.true.real.attribute"/>
+          <parameter key="82" value="G4\.C\.21\.3.true.real.attribute"/>
+          <parameter key="83" value="G4\.C\.22\.1.true.real.attribute"/>
+          <parameter key="84" value="G4\.C\.22\.2.true.real.attribute"/>
+          <parameter key="85" value="G4\.C\.22\.3.true.real.attribute"/>
+          <parameter key="86" value="G4\.C\.23\.1.true.real.attribute"/>
+          <parameter key="87" value="G4\.C\.23\.2.true.real.attribute"/>
+          <parameter key="88" value="G4\.C\.23\.3.true.real.attribute"/>
+          <parameter key="89" value="G4\.C\.24\.1.true.real.attribute"/>
+          <parameter key="90" value="G4\.C\.24\.2.true.real.attribute"/>
+          <parameter key="91" value="G4\.C\.24\.3.true.real.attribute"/>
+          <parameter key="92" value="seq_len.true.integer.attribute"/>
+          <parameter key="93" value="max_num.true.integer.attribute"/>
+          <parameter key="94" value="least_num.true.integer.attribute"/>
+          <parameter key="95" value="start_with_M.true.binominal.attribute"/>
+          <parameter key="96" value="g_t_ratio.true.real.attribute"/>
+          <parameter key="97" value="Label.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="false"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="9.4.001" expanded="true" height="103" name="Split Data" width="90" x="246" y="34">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.9"/>
+          <parameter key="ratio" value="0.1"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="9.4.001" expanded="true" height="82" name="Subprocess (5)" width="90" x="447" y="238">
+        <process expanded="true">
+          <operator activated="true" class="operator_toolbox:smote" compatibility="2.2.000" expanded="true" height="82" name="SMOTE Upsampling" width="90" x="45" y="34">
+            <parameter key="number_of_neighbours" value="5"/>
+            <parameter key="normalize" value="true"/>
+            <parameter key="equalize_classes" value="true"/>
+            <parameter key="upsampling_size" value="1000"/>
+            <parameter key="auto_detect_minority_class" value="true"/>
+            <parameter key="round_integers" value="true"/>
+            <parameter key="nominal_change_rate" value="0.5"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+          </operator>
+          <operator activated="true" class="operator_toolbox:smote" compatibility="2.2.000" expanded="true" height="82" name="SMOTE Upsampling (2)" width="90" x="179" y="34">
+            <parameter key="number_of_neighbours" value="5"/>
+            <parameter key="normalize" value="true"/>
+            <parameter key="equalize_classes" value="true"/>
+            <parameter key="upsampling_size" value="1000"/>
+            <parameter key="auto_detect_minority_class" value="true"/>
+            <parameter key="round_integers" value="true"/>
+            <parameter key="nominal_change_rate" value="0.5"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+          </operator>
+          <operator activated="true" class="operator_toolbox:smote" compatibility="2.2.000" expanded="true" height="82" name="SMOTE Upsampling (3)" width="90" x="313" y="34">
+            <parameter key="number_of_neighbours" value="5"/>
+            <parameter key="normalize" value="true"/>
+            <parameter key="equalize_classes" value="true"/>
+            <parameter key="upsampling_size" value="1000"/>
+            <parameter key="auto_detect_minority_class" value="true"/>
+            <parameter key="round_integers" value="true"/>
+            <parameter key="nominal_change_rate" value="0.5"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+          </operator>
+          <connect from_port="in 1" to_op="SMOTE Upsampling" to_port="exa"/>
+          <connect from_op="SMOTE Upsampling" from_port="ups" to_op="SMOTE Upsampling (2)" to_port="exa"/>
+          <connect from_op="SMOTE Upsampling (2)" from_port="ups" to_op="SMOTE Upsampling (3)" to_port="exa"/>
+          <connect from_op="SMOTE Upsampling (3)" from_port="ups" to_port="out 1"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="9.4.001" expanded="true" height="103" name="Multiply (2)" width="90" x="581" y="238"/>
+      <operator activated="true" class="split_data" compatibility="9.4.001" expanded="true" height="145" name="Split Data (2)" width="90" x="715" y="289">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.25"/>
+          <parameter key="ratio" value="0.25"/>
+          <parameter key="ratio" value="0.25"/>
+          <parameter key="ratio" value="0.25"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="9.4.001" expanded="true" height="103" name="Subprocess" width="90" x="983" y="289">
+        <process expanded="true">
+          <operator activated="true" class="h2o:deep_learning" compatibility="9.3.001" expanded="true" height="82" name="Deep Learning" width="90" x="112" y="34">
+            <parameter key="activation" value="Rectifier"/>
+            <enumeration key="hidden_layer_sizes">
+              <parameter key="hidden_layer_sizes" value="50"/>
+              <parameter key="hidden_layer_sizes" value="50"/>
+            </enumeration>
+            <enumeration key="hidden_dropout_ratios"/>
+            <parameter key="reproducible_(uses_1_thread)" value="false"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+            <parameter key="epochs" value="10.0"/>
+            <parameter key="compute_variable_importances" value="false"/>
+            <parameter key="train_samples_per_iteration" value="-2"/>
+            <parameter key="adaptive_rate" value="true"/>
+            <parameter key="epsilon" value="1.0E-8"/>
+            <parameter key="rho" value="0.99"/>
+            <parameter key="learning_rate" value="0.005"/>
+            <parameter key="learning_rate_annealing" value="1.0E-6"/>
+            <parameter key="learning_rate_decay" value="1.0"/>
+            <parameter key="momentum_start" value="0.0"/>
+            <parameter key="momentum_ramp" value="1000000.0"/>
+            <parameter key="momentum_stable" value="0.0"/>
+            <parameter key="nesterov_accelerated_gradient" value="true"/>
+            <parameter key="standardize" value="true"/>
+            <parameter key="L1" value="1.0E-5"/>
+            <parameter key="L2" value="0.0"/>
+            <parameter key="max_w2" value="10.0"/>
+            <parameter key="loss_function" value="Automatic"/>
+            <parameter key="distribution_function" value="AUTO"/>
+            <parameter key="early_stopping" value="false"/>
+            <parameter key="stopping_rounds" value="1"/>
+            <parameter key="stopping_metric" value="AUTO"/>
+            <parameter key="stopping_tolerance" value="0.001"/>
+            <parameter key="missing_values_handling" value="MeanImputation"/>
+            <parameter key="max_runtime_seconds" value="0"/>
+            <list key="expert_parameters"/>
+            <list key="expert_parameters_"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="9.4.001" expanded="true" height="82" name="Apply Model" width="90" x="246" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.4.001" expanded="true" height="82" name="Model1 (2)" width="90" x="380" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="in 1" to_op="Deep Learning" to_port="training set"/>
+          <connect from_op="Deep Learning" from_port="model" to_op="Apply Model" to_port="model"/>
+          <connect from_op="Deep Learning" from_port="exampleSet" to_op="Apply Model" to_port="unlabelled data"/>
+          <connect from_op="Apply Model" from_port="labelled data" to_op="Model1 (2)" to_port="labelled data"/>
+          <connect from_op="Apply Model" from_port="model" to_port="out 2"/>
+          <connect from_op="Model1 (2)" from_port="performance" to_port="out 1"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+          <portSpacing port="sink_out 3" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="9.4.001" expanded="true" height="103" name="Subprocess (2)" width="90" x="983" y="391">
+        <process expanded="true">
+          <operator activated="true" class="h2o:deep_learning" compatibility="9.3.001" expanded="true" height="82" name="Deep Learning (2)" width="90" x="112" y="34">
+            <parameter key="activation" value="Rectifier"/>
+            <enumeration key="hidden_layer_sizes">
+              <parameter key="hidden_layer_sizes" value="50"/>
+              <parameter key="hidden_layer_sizes" value="50"/>
+            </enumeration>
+            <enumeration key="hidden_dropout_ratios"/>
+            <parameter key="reproducible_(uses_1_thread)" value="false"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+            <parameter key="epochs" value="10.0"/>
+            <parameter key="compute_variable_importances" value="false"/>
+            <parameter key="train_samples_per_iteration" value="-2"/>
+            <parameter key="adaptive_rate" value="true"/>
+            <parameter key="epsilon" value="1.0E-8"/>
+            <parameter key="rho" value="0.99"/>
+            <parameter key="learning_rate" value="0.005"/>
+            <parameter key="learning_rate_annealing" value="1.0E-6"/>
+            <parameter key="learning_rate_decay" value="1.0"/>
+            <parameter key="momentum_start" value="0.0"/>
+            <parameter key="momentum_ramp" value="1000000.0"/>
+            <parameter key="momentum_stable" value="0.0"/>
+            <parameter key="nesterov_accelerated_gradient" value="true"/>
+            <parameter key="standardize" value="true"/>
+            <parameter key="L1" value="1.0E-5"/>
+            <parameter key="L2" value="0.0"/>
+            <parameter key="max_w2" value="10.0"/>
+            <parameter key="loss_function" value="Automatic"/>
+            <parameter key="distribution_function" value="AUTO"/>
+            <parameter key="early_stopping" value="false"/>
+            <parameter key="stopping_rounds" value="1"/>
+            <parameter key="stopping_metric" value="AUTO"/>
+            <parameter key="stopping_tolerance" value="0.001"/>
+            <parameter key="missing_values_handling" value="MeanImputation"/>
+            <parameter key="max_runtime_seconds" value="0"/>
+            <list key="expert_parameters"/>
+            <list key="expert_parameters_"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="9.4.001" expanded="true" height="82" name="Apply Model (2)" width="90" x="246" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.4.001" expanded="true" height="82" name="Model1" width="90" x="380" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="in 1" to_op="Deep Learning (2)" to_port="training set"/>
+          <connect from_op="Deep Learning (2)" from_port="model" to_op="Apply Model (2)" to_port="model"/>
+          <connect from_op="Deep Learning (2)" from_port="exampleSet" to_op="Apply Model (2)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Model1" to_port="labelled data"/>
+          <connect from_op="Apply Model (2)" from_port="model" to_port="out 2"/>
+          <connect from_op="Model1" from_port="performance" to_port="out 1"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+          <portSpacing port="sink_out 3" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="9.4.001" expanded="true" height="103" name="Subprocess (4)" width="90" x="916" y="646">
+        <process expanded="true">
+          <operator activated="true" class="h2o:deep_learning" compatibility="9.3.001" expanded="true" height="82" name="Deep Learning (4)" width="90" x="45" y="34">
+            <parameter key="activation" value="Rectifier"/>
+            <enumeration key="hidden_layer_sizes">
+              <parameter key="hidden_layer_sizes" value="50"/>
+              <parameter key="hidden_layer_sizes" value="50"/>
+            </enumeration>
+            <enumeration key="hidden_dropout_ratios"/>
+            <parameter key="reproducible_(uses_1_thread)" value="false"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+            <parameter key="epochs" value="10.0"/>
+            <parameter key="compute_variable_importances" value="false"/>
+            <parameter key="train_samples_per_iteration" value="-2"/>
+            <parameter key="adaptive_rate" value="true"/>
+            <parameter key="epsilon" value="1.0E-8"/>
+            <parameter key="rho" value="0.99"/>
+            <parameter key="learning_rate" value="0.005"/>
+            <parameter key="learning_rate_annealing" value="1.0E-6"/>
+            <parameter key="learning_rate_decay" value="1.0"/>
+            <parameter key="momentum_start" value="0.0"/>
+            <parameter key="momentum_ramp" value="1000000.0"/>
+            <parameter key="momentum_stable" value="0.0"/>
+            <parameter key="nesterov_accelerated_gradient" value="true"/>
+            <parameter key="standardize" value="true"/>
+            <parameter key="L1" value="1.0E-5"/>
+            <parameter key="L2" value="0.0"/>
+            <parameter key="max_w2" value="10.0"/>
+            <parameter key="loss_function" value="Automatic"/>
+            <parameter key="distribution_function" value="AUTO"/>
+            <parameter key="early_stopping" value="false"/>
+            <parameter key="stopping_rounds" value="1"/>
+            <parameter key="stopping_metric" value="AUTO"/>
+            <parameter key="stopping_tolerance" value="0.001"/>
+            <parameter key="missing_values_handling" value="MeanImputation"/>
+            <parameter key="max_runtime_seconds" value="0"/>
+            <list key="expert_parameters"/>
+            <list key="expert_parameters_"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="9.4.001" expanded="true" height="82" name="Apply Model (4)" width="90" x="246" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.4.001" expanded="true" height="82" name="Model1 (4)" width="90" x="380" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="in 1" to_op="Deep Learning (4)" to_port="training set"/>
+          <connect from_op="Deep Learning (4)" from_port="model" to_op="Apply Model (4)" to_port="model"/>
+          <connect from_op="Deep Learning (4)" from_port="exampleSet" to_op="Apply Model (4)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (4)" from_port="labelled data" to_op="Model1 (4)" to_port="labelled data"/>
+          <connect from_op="Apply Model (4)" from_port="model" to_port="out 2"/>
+          <connect from_op="Model1 (4)" from_port="performance" to_port="out 1"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+          <portSpacing port="sink_out 3" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="9.4.001" expanded="true" height="103" name="Subprocess (3)" width="90" x="983" y="544">
+        <process expanded="true">
+          <operator activated="true" class="h2o:deep_learning" compatibility="9.3.001" expanded="true" height="82" name="Deep Learning (3)" width="90" x="45" y="34">
+            <parameter key="activation" value="Rectifier"/>
+            <enumeration key="hidden_layer_sizes">
+              <parameter key="hidden_layer_sizes" value="50"/>
+              <parameter key="hidden_layer_sizes" value="50"/>
+            </enumeration>
+            <enumeration key="hidden_dropout_ratios"/>
+            <parameter key="reproducible_(uses_1_thread)" value="false"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+            <parameter key="epochs" value="10.0"/>
+            <parameter key="compute_variable_importances" value="false"/>
+            <parameter key="train_samples_per_iteration" value="-2"/>
+            <parameter key="adaptive_rate" value="true"/>
+            <parameter key="epsilon" value="1.0E-8"/>
+            <parameter key="rho" value="0.99"/>
+            <parameter key="learning_rate" value="0.005"/>
+            <parameter key="learning_rate_annealing" value="1.0E-6"/>
+            <parameter key="learning_rate_decay" value="1.0"/>
+            <parameter key="momentum_start" value="0.0"/>
+            <parameter key="momentum_ramp" value="1000000.0"/>
+            <parameter key="momentum_stable" value="0.0"/>
+            <parameter key="nesterov_accelerated_gradient" value="true"/>
+            <parameter key="standardize" value="true"/>
+            <parameter key="L1" value="1.0E-5"/>
+            <parameter key="L2" value="0.0"/>
+            <parameter key="max_w2" value="10.0"/>
+            <parameter key="loss_function" value="Automatic"/>
+            <parameter key="distribution_function" value="AUTO"/>
+            <parameter key="early_stopping" value="false"/>
+            <parameter key="stopping_rounds" value="1"/>
+            <parameter key="stopping_metric" value="AUTO"/>
+            <parameter key="stopping_tolerance" value="0.001"/>
+            <parameter key="missing_values_handling" value="MeanImputation"/>
+            <parameter key="max_runtime_seconds" value="0"/>
+            <list key="expert_parameters"/>
+            <list key="expert_parameters_"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="9.4.001" expanded="true" height="82" name="Apply Model (3)" width="90" x="246" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.4.001" expanded="true" height="82" name="Model1 (3)" width="90" x="380" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="in 1" to_op="Deep Learning (3)" to_port="training set"/>
+          <connect from_op="Deep Learning (3)" from_port="model" to_op="Apply Model (3)" to_port="model"/>
+          <connect from_op="Deep Learning (3)" from_port="exampleSet" to_op="Apply Model (3)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (3)" from_port="labelled data" to_op="Model1 (3)" to_port="labelled data"/>
+          <connect from_op="Apply Model (3)" from_port="model" to_port="out 2"/>
+          <connect from_op="Model1 (3)" from_port="performance" to_port="out 1"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+          <portSpacing port="sink_out 3" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="group_models" compatibility="9.4.001" expanded="true" height="145" name="Group Models" width="90" x="1385" y="646"/>
+      <operator activated="true" class="apply_model" compatibility="9.4.001" expanded="true" height="82" name="Apply Model (6)" width="90" x="1586" y="493">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="ungroup_models" compatibility="9.4.001" expanded="true" height="68" name="Ungroup Models" width="90" x="1787" y="595"/>
+      <operator activated="true" class="performance_classification" compatibility="9.4.001" expanded="true" height="82" name="TestModel" width="90" x="1787" y="493">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <connect from_op="Read CSV" from_port="output" to_op="Split Data" to_port="example set"/>
+      <connect from_op="Split Data" from_port="partition 1" to_op="Subprocess (5)" to_port="in 1"/>
+      <connect from_op="Split Data" from_port="partition 2" to_op="Apply Model (6)" to_port="unlabelled data"/>
+      <connect from_op="Subprocess (5)" from_port="out 1" to_op="Multiply (2)" to_port="input"/>
+      <connect from_op="Multiply (2)" from_port="output 1" to_op="Split Data (2)" to_port="example set"/>
+      <connect from_op="Multiply (2)" from_port="output 2" to_port="result 7"/>
+      <connect from_op="Split Data (2)" from_port="partition 1" to_op="Subprocess" to_port="in 1"/>
+      <connect from_op="Split Data (2)" from_port="partition 2" to_op="Subprocess (2)" to_port="in 1"/>
+      <connect from_op="Split Data (2)" from_port="partition 3" to_op="Subprocess (3)" to_port="in 1"/>
+      <connect from_op="Split Data (2)" from_port="partition 4" to_op="Subprocess (4)" to_port="in 1"/>
+      <connect from_op="Subprocess" from_port="out 1" to_port="result 1"/>
+      <connect from_op="Subprocess" from_port="out 2" to_op="Group Models" to_port="models in 1"/>
+      <connect from_op="Subprocess (2)" from_port="out 1" to_port="result 2"/>
+      <connect from_op="Subprocess (2)" from_port="out 2" to_op="Group Models" to_port="models in 2"/>
+      <connect from_op="Subprocess (4)" from_port="out 1" to_port="result 4"/>
+      <connect from_op="Subprocess (4)" from_port="out 2" to_op="Group Models" to_port="models in 4"/>
+      <connect from_op="Subprocess (3)" from_port="out 1" to_port="result 3"/>
+      <connect from_op="Subprocess (3)" from_port="out 2" to_op="Group Models" to_port="models in 3"/>
+      <connect from_op="Group Models" from_port="model out" to_op="Apply Model (6)" to_port="model"/>
+      <connect from_op="Apply Model (6)" from_port="labelled data" to_op="TestModel" to_port="labelled data"/>
+      <connect from_op="Apply Model (6)" from_port="model" to_op="Ungroup Models" to_port="grouped model"/>
+      <connect from_op="Ungroup Models" from_port="models" to_port="result 6"/>
+      <connect from_op="TestModel" from_port="performance" to_port="result 5"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="source_input 2" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
+      <portSpacing port="sink_result 6" spacing="0"/>
+      <portSpacing port="sink_result 7" spacing="0"/>
+      <portSpacing port="sink_result 8" spacing="0"/>
+    </process>
+  </operator>
+</process>
