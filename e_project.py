@@ -71,11 +71,11 @@ def  convertLabel (list, word, temp_list):
     temp_list.clear()
     for i in list:
         if ( i == word):
-            temp_list.append(1)
-            # temp_list.append('Yes')
+            # temp_list.append(1)
+            temp_list.append(word)
         else:
-            temp_list.append(0)
-            # temp_list.append('No')
+            # temp_list.append(0)
+            temp_list.append('No')
     return temp_list
 
 # inserts column of value only
@@ -444,8 +444,7 @@ insert_column(df,'start_with_M',seq_start_list,col_pos)
 insert_column(df,'g_t_ratio',g_transition_column,col_pos)
 # insert_column(df,'g_d_ratio',g_distribution_column,col_pos)
 
-#final column for labels
-# insert_column(df,'Label',dnaLabel,col_pos)
+
 
 label_list = ['DNA','RNA','DRNA','nonDRNA']
 
@@ -454,6 +453,9 @@ output_column(df,dnaLabel,label_list,'DNA')
 output_column(df,dnaLabel,label_list,'RNA')
 output_column(df,dnaLabel,label_list,'DRNA')
 output_column(df,dnaLabel,label_list,'nonDRNA')
+
+#final column for labels
+insert_column(df,'Label',dnaLabel,col_pos)
 
 
 # for version d removed output to d labels are all on one file

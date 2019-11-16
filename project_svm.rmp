@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.4.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.4.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="9.4.001" expanded="true" height="68" name="Read CSV" width="90" x="112" y="187">
+        <parameter key="csv_file" value="C:\Users\Chady\Desktop\Data Science\Group-Project-435\input_all_labels.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="true"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="windows-1252"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="A_count.true.integer.attribute"/>
+          <parameter key="1" value="R_count.true.integer.attribute"/>
+          <parameter key="2" value="N_count.true.integer.attribute"/>
+          <parameter key="3" value="D_count.true.integer.attribute"/>
+          <parameter key="4" value="C_count.true.integer.attribute"/>
+          <parameter key="5" value="Q_count.true.integer.attribute"/>
+          <parameter key="6" value="E_count.true.integer.attribute"/>
+          <parameter key="7" value="G_count.true.integer.attribute"/>
+          <parameter key="8" value="H_count.true.integer.attribute"/>
+          <parameter key="9" value="I_count.true.integer.attribute"/>
+          <parameter key="10" value="L_count.true.integer.attribute"/>
+          <parameter key="11" value="K_count.true.integer.attribute"/>
+          <parameter key="12" value="M_count.true.integer.attribute"/>
+          <parameter key="13" value="F_count.true.integer.attribute"/>
+          <parameter key="14" value="P_count.true.integer.attribute"/>
+          <parameter key="15" value="S_count.true.integer.attribute"/>
+          <parameter key="16" value="T_count.true.integer.attribute"/>
+          <parameter key="17" value="W_count.true.integer.attribute"/>
+          <parameter key="18" value="Y_count.true.integer.attribute"/>
+          <parameter key="19" value="V_count.true.integer.attribute"/>
+          <parameter key="20" value="G4\.C\.1\.1.true.real.attribute"/>
+          <parameter key="21" value="G4\.C\.1\.2.true.real.attribute"/>
+          <parameter key="22" value="G4\.C\.1\.3.true.real.attribute"/>
+          <parameter key="23" value="G4\.C\.2\.1.true.real.attribute"/>
+          <parameter key="24" value="G4\.C\.2\.2.true.real.attribute"/>
+          <parameter key="25" value="G4\.C\.2\.3.true.real.attribute"/>
+          <parameter key="26" value="G4\.C\.3\.1.true.real.attribute"/>
+          <parameter key="27" value="G4\.C\.3\.2.true.real.attribute"/>
+          <parameter key="28" value="G4\.C\.3\.3.true.real.attribute"/>
+          <parameter key="29" value="G4\.C\.4\.1.true.real.attribute"/>
+          <parameter key="30" value="G4\.C\.4\.2.true.real.attribute"/>
+          <parameter key="31" value="G4\.C\.4\.3.true.real.attribute"/>
+          <parameter key="32" value="G4\.C\.5\.1.true.real.attribute"/>
+          <parameter key="33" value="G4\.C\.5\.2.true.real.attribute"/>
+          <parameter key="34" value="G4\.C\.5\.3.true.real.attribute"/>
+          <parameter key="35" value="G4\.C\.6\.1.true.real.attribute"/>
+          <parameter key="36" value="G4\.C\.6\.2.true.real.attribute"/>
+          <parameter key="37" value="G4\.C\.6\.3.true.real.attribute"/>
+          <parameter key="38" value="G4\.C\.7\.1.true.real.attribute"/>
+          <parameter key="39" value="G4\.C\.7\.2.true.real.attribute"/>
+          <parameter key="40" value="G4\.C\.7\.3.true.real.attribute"/>
+          <parameter key="41" value="G4\.C\.8\.1.true.real.attribute"/>
+          <parameter key="42" value="G4\.C\.8\.2.true.real.attribute"/>
+          <parameter key="43" value="G4\.C\.8\.3.true.real.attribute"/>
+          <parameter key="44" value="G4\.C\.9\.1.true.real.attribute"/>
+          <parameter key="45" value="G4\.C\.9\.2.true.real.attribute"/>
+          <parameter key="46" value="G4\.C\.9\.3.true.real.attribute"/>
+          <parameter key="47" value="G4\.C\.10\.1.true.real.attribute"/>
+          <parameter key="48" value="G4\.C\.10\.2.true.real.attribute"/>
+          <parameter key="49" value="G4\.C\.10\.3.true.real.attribute"/>
+          <parameter key="50" value="G4\.C\.11\.1.true.real.attribute"/>
+          <parameter key="51" value="G4\.C\.11\.2.true.real.attribute"/>
+          <parameter key="52" value="G4\.C\.11\.3.true.real.attribute"/>
+          <parameter key="53" value="G4\.C\.12\.1.true.real.attribute"/>
+          <parameter key="54" value="G4\.C\.12\.2.true.real.attribute"/>
+          <parameter key="55" value="G4\.C\.12\.3.true.real.attribute"/>
+          <parameter key="56" value="G4\.C\.13\.1.true.real.attribute"/>
+          <parameter key="57" value="G4\.C\.13\.2.true.real.attribute"/>
+          <parameter key="58" value="G4\.C\.13\.3.true.real.attribute"/>
+          <parameter key="59" value="G4\.C\.14\.1.true.real.attribute"/>
+          <parameter key="60" value="G4\.C\.14\.2.true.real.attribute"/>
+          <parameter key="61" value="G4\.C\.14\.3.true.real.attribute"/>
+          <parameter key="62" value="G4\.C\.15\.1.true.real.attribute"/>
+          <parameter key="63" value="G4\.C\.15\.2.true.real.attribute"/>
+          <parameter key="64" value="G4\.C\.15\.3.true.real.attribute"/>
+          <parameter key="65" value="G4\.C\.16\.1.true.real.attribute"/>
+          <parameter key="66" value="G4\.C\.16\.2.true.real.attribute"/>
+          <parameter key="67" value="G4\.C\.16\.3.true.real.attribute"/>
+          <parameter key="68" value="G4\.C\.17\.1.true.real.attribute"/>
+          <parameter key="69" value="G4\.C\.17\.2.true.real.attribute"/>
+          <parameter key="70" value="G4\.C\.17\.3.true.real.attribute"/>
+          <parameter key="71" value="G4\.C\.18\.1.true.real.attribute"/>
+          <parameter key="72" value="G4\.C\.18\.2.true.real.attribute"/>
+          <parameter key="73" value="G4\.C\.18\.3.true.real.attribute"/>
+          <parameter key="74" value="G4\.C\.19\.1.true.real.attribute"/>
+          <parameter key="75" value="G4\.C\.19\.2.true.real.attribute"/>
+          <parameter key="76" value="G4\.C\.19\.3.true.real.attribute"/>
+          <parameter key="77" value="G4\.C\.20\.1.true.real.attribute"/>
+          <parameter key="78" value="G4\.C\.20\.2.true.real.attribute"/>
+          <parameter key="79" value="G4\.C\.20\.3.true.real.attribute"/>
+          <parameter key="80" value="G4\.C\.21\.1.true.real.attribute"/>
+          <parameter key="81" value="G4\.C\.21\.2.true.real.attribute"/>
+          <parameter key="82" value="G4\.C\.21\.3.true.real.attribute"/>
+          <parameter key="83" value="G4\.C\.22\.1.true.real.attribute"/>
+          <parameter key="84" value="G4\.C\.22\.2.true.real.attribute"/>
+          <parameter key="85" value="G4\.C\.22\.3.true.real.attribute"/>
+          <parameter key="86" value="G4\.C\.23\.1.true.real.attribute"/>
+          <parameter key="87" value="G4\.C\.23\.2.true.real.attribute"/>
+          <parameter key="88" value="G4\.C\.23\.3.true.real.attribute"/>
+          <parameter key="89" value="G4\.C\.24\.1.true.real.attribute"/>
+          <parameter key="90" value="G4\.C\.24\.2.true.real.attribute"/>
+          <parameter key="91" value="G4\.C\.24\.3.true.real.attribute"/>
+          <parameter key="92" value="seq_len.true.integer.attribute"/>
+          <parameter key="93" value="max_num.true.integer.attribute"/>
+          <parameter key="94" value="least_num.true.integer.attribute"/>
+          <parameter key="95" value="start_with_M.true.integer.attribute"/>
+          <parameter key="96" value="g_t_ratio.true.real.attribute"/>
+          <parameter key="97" value="Label.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="false"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="9.4.001" expanded="true" height="82" name="Multiply" width="90" x="112" y="391"/>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.4.001" expanded="true" height="145" name="Cross Validation (3)" width="90" x="514" y="289">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="10"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="subprocess" compatibility="9.4.001" expanded="true" height="82" name="Subprocess (3)" width="90" x="112" y="85">
+            <process expanded="true">
+              <operator activated="true" class="operator_toolbox:smote" compatibility="2.2.000" expanded="true" height="82" name="SMOTE Upsampling (7)" width="90" x="246" y="289">
+                <parameter key="number_of_neighbours" value="5"/>
+                <parameter key="normalize" value="true"/>
+                <parameter key="equalize_classes" value="true"/>
+                <parameter key="upsampling_size" value="1000"/>
+                <parameter key="auto_detect_minority_class" value="true"/>
+                <parameter key="round_integers" value="true"/>
+                <parameter key="nominal_change_rate" value="0.5"/>
+                <parameter key="use_local_random_seed" value="false"/>
+                <parameter key="local_random_seed" value="1992"/>
+              </operator>
+              <operator activated="true" class="operator_toolbox:smote" compatibility="2.2.000" expanded="true" height="82" name="SMOTE Upsampling (8)" width="90" x="514" y="340">
+                <parameter key="number_of_neighbours" value="5"/>
+                <parameter key="normalize" value="true"/>
+                <parameter key="equalize_classes" value="true"/>
+                <parameter key="upsampling_size" value="1000"/>
+                <parameter key="auto_detect_minority_class" value="true"/>
+                <parameter key="round_integers" value="true"/>
+                <parameter key="nominal_change_rate" value="0.5"/>
+                <parameter key="use_local_random_seed" value="false"/>
+                <parameter key="local_random_seed" value="1992"/>
+              </operator>
+              <operator activated="true" class="operator_toolbox:smote" compatibility="2.2.000" expanded="true" height="82" name="SMOTE Upsampling (9)" width="90" x="849" y="340">
+                <parameter key="number_of_neighbours" value="5"/>
+                <parameter key="normalize" value="true"/>
+                <parameter key="equalize_classes" value="true"/>
+                <parameter key="upsampling_size" value="1000"/>
+                <parameter key="auto_detect_minority_class" value="true"/>
+                <parameter key="round_integers" value="true"/>
+                <parameter key="nominal_change_rate" value="0.5"/>
+                <parameter key="use_local_random_seed" value="false"/>
+                <parameter key="local_random_seed" value="1992"/>
+              </operator>
+              <operator activated="false" class="sample" compatibility="9.4.001" expanded="true" height="82" name="Sample" width="90" x="1050" y="340">
+                <parameter key="sample" value="absolute"/>
+                <parameter key="balance_data" value="false"/>
+                <parameter key="sample_size" value="500"/>
+                <parameter key="sample_ratio" value="0.1"/>
+                <parameter key="sample_probability" value="0.1"/>
+                <list key="sample_size_per_class"/>
+                <list key="sample_ratio_per_class"/>
+                <list key="sample_probability_per_class"/>
+                <parameter key="use_local_random_seed" value="false"/>
+                <parameter key="local_random_seed" value="1992"/>
+              </operator>
+              <connect from_port="in 1" to_op="SMOTE Upsampling (7)" to_port="exa"/>
+              <connect from_op="SMOTE Upsampling (7)" from_port="ups" to_op="SMOTE Upsampling (8)" to_port="exa"/>
+              <connect from_op="SMOTE Upsampling (8)" from_port="ups" to_op="SMOTE Upsampling (9)" to_port="exa"/>
+              <connect from_op="SMOTE Upsampling (9)" from_port="ups" to_port="out 1"/>
+              <portSpacing port="source_in 1" spacing="0"/>
+              <portSpacing port="source_in 2" spacing="0"/>
+              <portSpacing port="sink_out 1" spacing="0"/>
+              <portSpacing port="sink_out 2" spacing="0"/>
+            </process>
+          </operator>
+          <operator activated="true" class="support_vector_machine_libsvm" compatibility="9.4.001" expanded="true" height="82" name="SVM" width="90" x="447" y="136">
+            <parameter key="svm_type" value="C-SVC"/>
+            <parameter key="kernel_type" value="rbf"/>
+            <parameter key="degree" value="3"/>
+            <parameter key="gamma" value="0.0"/>
+            <parameter key="coef0" value="0.0"/>
+            <parameter key="C" value="0.0"/>
+            <parameter key="nu" value="0.5"/>
+            <parameter key="cache_size" value="80"/>
+            <parameter key="epsilon" value="0.001"/>
+            <parameter key="p" value="0.1"/>
+            <list key="class_weights"/>
+            <parameter key="shrinking" value="true"/>
+            <parameter key="calculate_confidences" value="false"/>
+            <parameter key="confidence_for_multiclass" value="true"/>
+          </operator>
+          <connect from_port="training set" to_op="Subprocess (3)" to_port="in 1"/>
+          <connect from_op="Subprocess (3)" from_port="out 1" to_op="SVM" to_port="training set"/>
+          <connect from_op="SVM" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.4.001" expanded="true" height="82" name="Apply Model (3)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance" compatibility="9.4.001" expanded="true" height="82" name="svm" width="90" x="313" y="34">
+            <parameter key="use_example_weights" value="true"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (3)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (3)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (3)" from_port="labelled data" to_op="svm" to_port="labelled data"/>
+          <connect from_op="svm" from_port="performance" to_port="performance 1"/>
+          <connect from_op="svm" from_port="example set" to_port="test set results"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <connect from_op="Read CSV" from_port="output" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="Cross Validation (3)" to_port="example set"/>
+      <connect from_op="Cross Validation (3)" from_port="performance 1" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>
