@@ -102,7 +102,7 @@ def g_transition_function(str_test, list_result):
 
 
 
-         
+
 
 def g_number_convert (g_list, result_list, seq_test,g_trans,g_dest):
     seq_copy = ''
@@ -123,12 +123,12 @@ def g_number_convert (g_list, result_list, seq_test,g_trans,g_dest):
                 # result_list.append(3)
                 seq_copy = seq_copy + '3'
                 # print('3')
-        
+
     result_list.append(seq_copy)
     g_transition_function(seq_copy,g_trans)
     # g_destribution_function(result_list,g_dest,seq_len)
-    
-    
+
+
 
 
 # def
@@ -147,7 +147,7 @@ least_letter_count = list() # least letter number
 least_letter_list = list() # least letter descriptionstring2 = string2 + ' ' + word
 no_letter_list = list() # list for all
 seq_start_list = list() # list for if it starts with m or not
-seq_num_category_list = list() # list of sequences with number values instead 
+seq_num_category_list = list() # list of sequences with number values instead
 g_transition_column = list() # column for transition numbers
 g_distribution_column = list() #column for distribution numbers
 
@@ -305,7 +305,7 @@ test_result = '32132223311311222222'
 
 # for count  in range(len(g4_transtion_list)):
 # for num, value  in enumerate(g_series_list):
-#     for element in range(0, len(test_seq)): 
+#     for element in range(0, len(test_seq)):
 #         if(num % 3 == 0):
 #             if(element in value):
 #                 g4_transtion_list[0].append(1)
@@ -363,7 +363,7 @@ for  seq_str in (sequenceLabel):
         feature_list[num].append(temp_num)
         temp_str = sequence_letter_list[num] #individual character
 
-        
+
 
 
         #checks highest count for max number and index
@@ -387,10 +387,10 @@ for  seq_str in (sequenceLabel):
         elif(temp_num == 0):
             temp_tot_none = temp_str + temp_tot_none
 
-         
+
     # print(len(seq_num_category_list))
-    # g_number_convert(g_series_list,seq_num_category_list,g_transition_column, g_distribution_column, seq_str,str_len)  
-    g_number_convert(g_series_list,seq_num_category_list,seq_str, g_transition_column, g_distribution_column)   
+    # g_number_convert(g_series_list,seq_num_category_list,g_transition_column, g_distribution_column, seq_str,str_len)
+    g_number_convert(g_series_list,seq_num_category_list,seq_str, g_transition_column, g_distribution_column)
 
 
     feature_length.append(str_len)
