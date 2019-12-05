@@ -33,7 +33,7 @@ test_string = 'CGQGFSVKSDVITHQRTHTGEKLYVCRECGRGFSWKSHLLIHQRIHTGEKPYVCRECGRGFSWQS
 
 # shuffle's the columns before performing all the functions
 # depends on if we are doing it in rapid miner or not
-data = data.sample(frac=1).reset_index(drop=True)
+# data = data.sample(frac=1).reset_index(drop=True)
 # data = data.sample(frac=1).reset_index(drop=False)  # Does not drop index
 
 
